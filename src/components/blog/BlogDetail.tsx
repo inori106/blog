@@ -21,10 +21,10 @@ const BlogDetail: React.FC<Props> = ({
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-3xl mx-auto'>
             <div className='space-y-4'>
-              <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl'>
+              <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl dark:text-gray-50'>
                 {title}
               </h1>
-              <div className='flex items-center space-x-4 text-gray-500 dark:text-gray-400'>
+              <div className='flex items-center space-x-2 text-gray-500 dark:text-gray-400'>
                 <div className='h-4 bg-gray-300 dark:bg-gray-700' />
                 <div>投稿日：{create}</div>
                 {update && (
@@ -34,10 +34,10 @@ const BlogDetail: React.FC<Props> = ({
                   </>
                 )}
               </div>
-              <p>{description}</p>
+              <p className='pl-2 dark:text-gray-400'>{description}</p>
               {categories && (
                 <div className='flex space-x-2'>
-                  <div className='text-gray-500 dark:text-gray-400'>
+                  <div className='pl-2 text-gray-500 dark:text-gray-400'>
                     カテゴリー：
                   </div>
                   {categories.map((category) => (

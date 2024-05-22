@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getlist } from '@/lib/client';
 import Image from 'next/image';
 import { Blog, Category } from '@/types/blog';
+import dayjs from 'dayjs';
 
 export const revalidate = 0;
 const BlogList: React.FC = async () => {
@@ -20,10 +21,6 @@ const BlogList: React.FC = async () => {
               className='h-48 w-full rounded-t-lg md:h-auto md:w-72 md:rounded-l-lg object-cover'
               height={300}
               src={data.eyecatch?.url ?? '/No_image.png'}
-              style={{
-                aspectRatio: '400/300',
-                objectFit: 'cover',
-              }}
               width={400}
             />
             <div className='flex flex-col justify-between p-4 w-full'>
@@ -47,7 +44,17 @@ const BlogList: React.FC = async () => {
                     {data.title}
                   </Link>
                 </h2>
-                <p>投稿日：{data.createdAt}</p>
+                <div className='xl:flex items-center mb-2 xl:space-x-2 dark:text-gray-400'>
+                  <p>投稿日：{dayjs(data.createdAt).format('YYYY-MM-DD')}</p>
+                  {data.updatedAt && (
+                    <>
+                      <div className='xl:h-4 xl:w-px bg-gray-300 dark:bg-gray-700'></div>
+                      <p>
+                        更新日：{dayjs(data.updatedAt).format('YYYY-MM-DD')}
+                      </p>
+                    </>
+                  )}
+                </div>
                 <p className='text-gray-600 dark:text-gray-400'>
                   {data.description}
                 </p>

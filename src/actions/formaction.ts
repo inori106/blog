@@ -1,7 +1,7 @@
 'use server';
-import { error } from 'console';
-import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { redirect } from 'next/navigation';
+import validate from '@/lib/validation';
 
 export async function formActions(formData: FormData) {
   const name = String(formData.get('name'));

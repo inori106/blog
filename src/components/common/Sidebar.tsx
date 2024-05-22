@@ -5,7 +5,7 @@ const Sidebar: React.FC = async () => {
   const categories = await getCategories();
   return (
     <>
-      <aside className='bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-none p-6'>
+      <aside className='bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-none p-6 mt-5 sm:mt-4 lg:mt-0'>
         <div className='mb-6'>
           <h3 className='text-lg font-bold mb-2 dark:text-gray-50'>Search</h3>
           <div className='relative'>

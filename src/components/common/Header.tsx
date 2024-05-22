@@ -46,7 +46,7 @@ const Header: React.FC = () => {
                     <Link
                       key={path.name}
                       href={path.href}
-                      className='flex w-full items-center py-2 text-lg font-semibold'
+                      className='flex w-full items-center py-2 text-lg font-semibold dark:text-gray-50 hover:text-gray-900 dark:hover:text-gray-50'
                     >
                       {path.name}
                     </Link>
