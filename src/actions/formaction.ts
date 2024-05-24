@@ -11,34 +11,34 @@ export async function formActions(formData: FormData) {
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.NODE_MAILER_ADDRESS,
-      pass: process.env.NODE_MAILER_PASSWORD,
-    },
-  });
+  // const transporter = nodemailer.createTransport({
+  //   host: 'smtp.gmail.com',
+  //   port: 587,
+  //   secure: false,
+  //   auth: {
+  //     user: process.env.NODE_MAILER_ADDRESS,
+  //     pass: process.env.NODE_MAILER_PASSWORD,
+  //   },
+  // });
 
-  const toHostMailData = {
-    from: email,
-    to: process.env.MAIL_ADDRESS,
-    subject: `[お問い合わせ] ${name}様より`,
-    html: `
-    <P>${name}様からお問い合わせがありました。</p>
-    <p>メールアドレス: ${email}</p>
-    <p>${message}</p>`,
-  };
+  // const toHostMailData = {
+  //   from: email,
+  //   to: process.env.MAIL_ADDRESS,
+  //   subject: `[お問い合わせ] ${name}様より`,
+  //   html: `
+  //   <P>${name}様からお問い合わせがありました。</p>
+  //   <p>メールアドレス: ${email}</p>
+  //   <p>${message}</p>`,
+  // };
 
-  transporter.sendMail(toHostMailData, (error, info) => {
-    if (error) {
-      console.log(error);
-      flag = false;
-    } else {
-      console.log('Email sent: ' + info.response);
-      flag = true;
-    }
-  });
+  // transporter.sendMail(toHostMailData, (error, info) => {
+  //   if (error) {
+  //     console.log(error);
+  //     flag = false;
+  //   } else {
+  //     console.log('Email sent: ' + info.response);
+  //     flag = true;
+  //   }
+  // });
   return flag;
 }

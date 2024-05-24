@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Paths = [
   { name: 'Home', href: '/blog' },
-  { name: 'About', href: '/' },
+  { name: 'About', href: '/about' },
   { name: 'Blog', href: '/' },
   { name: 'Contact', href: '/contact' },
 ];

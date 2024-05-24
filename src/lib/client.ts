@@ -5,7 +5,7 @@ import type {
   MicroCMSDate,
 } from 'microcms-js-sdk';
 import { Blog, Category } from '@/types/blog';
-export const revalidate = 0;
+
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error('MICROCMS_SERVICE_DOMAIN is required');
 }
@@ -30,9 +30,16 @@ export const getCategories = async () => {
   const res = await client.get({
     endpoint: 'categories',
   });
-  return res.contents as Blog[];
+  return res.contents as Category[];
 };
 
+export const getCategoryname = async (id: string) => {
+  const res = (await client.get({
+    endpoint: 'categories',
+    contentId: id,
+  })) as Category;
+  return res.name as string;
+};
 export const getdetail = async (id: string, queries: MicroCMSQueries) => {
   const res = await client.getListDetail<Blog>({
     endpoint: process.env.MICROCMS_ENDPOINT as string,
@@ -40,4 +47,19 @@ export const getdetail = async (id: string, queries: MicroCMSQueries) => {
     queries,
   });
   return res;
+};
+export const getfilterCATblog = async (id: string) => {
+  const res = (await client.get({
+    endpoint: process.env.MICROCMS_ENDPOINT as string,
+    queries: { filters: `categories[contains]${id}` },
+  })) as { contents: Blog[] };
+  return res.contents;
+};
+
+export const getSearchblog = async (keyword: string) => {
+  const res = (await client.get({
+    endpoint: process.env.MICROCMS_ENDPOINT as string,
+    queries: { q: keyword },
+  })) as { contents: Blog[] };
+  return res.contents;
 };

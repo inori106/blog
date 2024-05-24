@@ -4,14 +4,14 @@ import Image from 'next/image';
 import { Blog, Category } from '@/types/blog';
 import dayjs from 'dayjs';
 
-export const revalidate = 0;
-const BlogList: React.FC = async () => {
-  const datas: Blog[] = await getlist();
-
+type Props = {
+  props: Blog[];
+};
+const BlogList: React.FC<Props> = async ({ props }) => {
   return (
     <main>
       <div className=''>
-        {datas.map((data: Blog) => (
+        {props.map((data: Blog) => (
           <article
             className='flex flex-col md:flex-row gap-6 rounded-lg bg-white dark:bg-gray-900 shadow-md dark:shadow-none mx-auto mb-8'
             key={data.id}
