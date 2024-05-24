@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function AboutPage() {
   return (
     <main className='flex flex-col'>
@@ -59,7 +61,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div>
-              <img
+              <Image
                 alt='Acme Software History'
                 className='mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full'
                 height={310}

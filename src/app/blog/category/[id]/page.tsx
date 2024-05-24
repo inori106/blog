@@ -2,7 +2,7 @@ import { getfilterCATblog, getCategoryname } from '@/lib/client';
 import Link from 'next/link';
 import BlogList from '@/components/blog/BlogList';
 
-export const relative = 0;
+export const revalidate = 0;
 export default async function blogPage({ params }: { params: { id: string } }) {
   const filterCATblog = await getfilterCATblog(params.id);
   const categoryname = await getCategoryname(params.id);
