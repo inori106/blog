@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { getlist } from '@/lib/client';
 import Image from 'next/image';
 import { Blog, Category } from '@/types/blog';
 import dayjs from 'dayjs';

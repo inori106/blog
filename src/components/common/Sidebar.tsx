@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { getCategories } from '@/lib/client';
-import { FaSearch } from 'react-icons/fa';
-import { revalidatePath } from 'next/cache';
-import { redirect, permanentRedirect } from 'next/navigation';
+import { Category } from '@/types/blog';
+import { redirect } from 'next/navigation';
+import SearchForm from '../blog/SearchForm';
 
 export const revalidate = 0;
 
@@ -25,35 +25,14 @@ const Sidebar: React.FC = async () => {
       <aside className='bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-none p-6 mt-5 sm:mt-4 lg:mt-0'>
         <div className='mb-6'>
           <h3 className='text-lg font-bold mb-2 dark:text-gray-50'>Search</h3>
-          <div className='relative'>
-            <form action={SearchAction} className='flex gap-2'>
-              <FaSearch
-                color='black'
-                className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400'
-              />
-              <input
-                className='w-full pl-10 pr-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50'
-                placeholder='Search blog posts...'
-                type='text'
-                name='search'
-                id='search'
-              />
-              <button
-                type='submit'
-                className='rounded-md bg-black text-white p-2 dark:bg-gray-800
-                dark:text-gray-50 hover:bg-gray-900 hover:text-gray-300 transition duration-300 ease-in-out'
-              >
-                Search
-              </button>
-            </form>
-          </div>
+          <SearchForm />
         </div>
         <div>
           <h3 className='text-lg font-bold mb-2 dark:text-gray-50'>
             Categories
           </h3>
           <ul className='space-y-2'>
-            {categories.map((category: any) => (
+            {categories.map((category: Category) => (
               <li key={category.id}>
                 <Link
                   className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'

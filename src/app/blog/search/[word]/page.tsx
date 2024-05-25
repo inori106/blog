@@ -1,6 +1,6 @@
 import { getSearchblog } from '@/lib/client';
 import BlogList from '@/components/blog/BlogList';
-
+import Section from '@/components/blog/Section';
 export const revalidate = 0;
 export default async function SearchPage({
   params,
@@ -12,11 +12,13 @@ export default async function SearchPage({
 
   return (
     <div>
-      <h1>Search : {keyword}</h1>
       {searchblog.length === 0 ? (
-        <p>Not found</p>
+        <Section title='No Result' />
       ) : (
-        <BlogList props={searchblog} />
+        <>
+          <Section title={`Search: ${keyword}`} />
+          <BlogList props={searchblog} />
+        </>
       )}
     </div>
   );
