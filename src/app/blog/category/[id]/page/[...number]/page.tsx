@@ -4,16 +4,17 @@ import BlogList from '@/components/blog/BlogList';
 import Pagination from '@/components/blog/Pagination';
 
 export const revalidate = 0;
-export default async function CategoryPage({
+export default async function CategoryPagiNation({
   params,
 }: {
-  params: { id: string };
+  params: { id: string; number: number };
 }) {
-  const res = await getfilterCATblog(params.id, 1);
+  const res = await getfilterCATblog(params.id, params.number);
   const categoryname = await getCategoryname(params.id);
   const filterCATblog = res.datas;
   const totalCount = res.totalCount;
   console.log(totalCount);
+  console.log(params.id, params.number);
 
   return (
     <div>
@@ -21,7 +22,7 @@ export default async function CategoryPage({
       <BlogList props={filterCATblog} />
       <Pagination
         totalCount={totalCount}
-        currentPage={1}
+        currentPage={Number(params.number)}
         paths={`/category/${params.id}/`}
       />
     </div>

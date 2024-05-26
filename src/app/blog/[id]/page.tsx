@@ -3,7 +3,11 @@ import BlogDetail from '@/components/blog/BlogDetail';
 
 export const revalidate = 0;
 
-export default async function BlogPage({ params }: { params: { id: string } }) {
+export default async function BlogDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   const data = await getdetail(params.id, {});
   return (
     <div>

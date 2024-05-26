@@ -55,7 +55,7 @@ const BlogDetail: React.FC<Props> = ({
         </div>
       </section>
       <div className='prose prose-gray dark:prose-invert max-w-none'>
-        <figure>
+        {/* <figure>
           <Image
             alt='Eyecatch Image'
             className='rounded-lg object-cover w-full'
@@ -66,7 +66,7 @@ const BlogDetail: React.FC<Props> = ({
           <figcaption className='text-sm text-gray-500 dark:text-gray-400 mt-2'>
             A whimsical illustration of the Joke Tax Chronicles
           </figcaption>
-        </figure>
+        </figure> */}
         <p>{description}</p>
         <Parse content={content} />
       </div>

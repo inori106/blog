@@ -14,18 +14,26 @@ if (!process.env.MICROCMS_API_KEY) {
   throw new Error('MICROCMS_API_KEY is required');
 }
 
+export const LIST_LIMIT: number = 1;
+const OFFSET: number = 0;
+
 export const client = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN as string,
   apiKey: process.env.MICROCMS_API_KEY as string,
 });
 
-export const getlist = async (queries?: MicroCMSQueries) => {
-  const res = await client.get({
+export const getBlog = async (page: number) => {
+  const res = (await client.get({
     endpoint: process.env.MICROCMS_ENDPOINT as string,
-    queries,
-  });
-  return res.contents;
+    queries: {
+      offset: (page - 1) * LIST_LIMIT,
+      limit: LIST_LIMIT,
+    },
+  })) as { contents: Blog[]; totalCount: number };
+
+  return { datas: res.contents, totalCount: res.totalCount };
 };
+
 export const getCategories = async () => {
   const res = await client.get({
     endpoint: 'categories',
@@ -48,18 +56,26 @@ export const getdetail = async (id: string, queries: MicroCMSQueries) => {
   });
   return res;
 };
-export const getfilterCATblog = async (id: string) => {
+export const getfilterCATblog = async (id: string, page: number) => {
   const res = (await client.get({
     endpoint: process.env.MICROCMS_ENDPOINT as string,
-    queries: { filters: `categories[contains]${id}` },
-  })) as { contents: Blog[] };
-  return res.contents;
+    queries: {
+      filters: `categories[contains]${id}`,
+      offset: (page - 1) * LIST_LIMIT,
+      limit: LIST_LIMIT,
+    },
+  })) as { contents: Blog[]; totalCount: number };
+  return { datas: res.contents, totalCount: res.totalCount };
 };
 
-export const getSearchblog = async (keyword: string) => {
+export const getSearchblog = async (query: string, page: number) => {
   const res = (await client.get({
     endpoint: process.env.MICROCMS_ENDPOINT as string,
-    queries: { q: keyword },
-  })) as { contents: Blog[] };
-  return res.contents;
+    queries: {
+      q: query,
+      offset: (page - 1) * LIST_LIMIT,
+      limit: LIST_LIMIT,
+    },
+  })) as { contents: Blog[]; totalCount: number };
+  return { datas: res.contents, totalCount: res.totalCount };
 };

@@ -81,7 +81,7 @@ const ContactFrom: React.FC = () => {
             />
           </div>
           <div className='flex container items-center justify-between'>
-            <SubmitButton />
+            <SubmitButton pretext='Send' loadingtext='Sending...' />
             <div className='flex space-x-4'>
               <RiTwitterXLine size={30} color='gray' />
               <FiGithub size={30} color='gray' />

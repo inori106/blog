@@ -16,10 +16,11 @@ const BlogList: React.FC<Props> = async ({ props }) => {
             key={data.id}
           >
             <Image
+              src={data.eyecatch?.url ?? '/No_image.png'}
+              priority
               alt='Blog post image'
               className='h-48 w-full rounded-t-lg md:h-auto md:w-72 md:rounded-l-lg object-cover'
               height={300}
-              src={data.eyecatch?.url ?? '/No_image.png'}
               width={400}
             />
             <div className='flex flex-col justify-between p-4 w-full'>
@@ -28,7 +29,7 @@ const BlogList: React.FC<Props> = async ({ props }) => {
                   {data.categories.map((category: Category) => (
                     <Link
                       className='inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50 px-2 py-1 text-xs font-medium text-gray-900 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 dark:focus-visible:ring-gray-300'
-                      href='#'
+                      href={`blog/category/${category.id}`}
                       key={category.id}
                     >
                       {category.name}

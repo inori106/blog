@@ -7,17 +7,6 @@ import SearchForm from '../blog/SearchForm';
 export const revalidate = 0;
 
 const Sidebar: React.FC = async () => {
-  async function SearchAction(formData: FormData) {
-    'use server';
-    const word = String(formData.get('search'));
-    if (word) {
-      const urlkey = encodeURIComponent(word);
-      return redirect(`/blog/search/${urlkey}`);
-    } else {
-      redirect('/');
-    }
-  }
-
   const categories = await getCategories();
 
   return (

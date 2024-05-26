@@ -1,6 +1,10 @@
 import { useFormStatus } from 'react-dom';
 
-const SubmitButton: React.FC = () => {
+type Props = {
+  pretext?: string;
+  loadingtext?: string;
+};
+const SubmitButton: React.FC<Props> = ({ pretext, loadingtext }) => {
   const { pending } = useFormStatus();
   return (
     <button
@@ -8,7 +12,7 @@ const SubmitButton: React.FC = () => {
       type='submit'
       disabled={pending}
     >
-      {pending ? 'Sending...' : 'Send'}
+      {pending ? loadingtext : pretext}
     </button>
   );
 };
