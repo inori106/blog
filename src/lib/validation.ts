@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const validate = z.object({
+export const ContactValidate = z.object({
   name: z
     .string({
       invalid_type_error: 'Name must be a string',
@@ -10,7 +10,6 @@ const validate = z.object({
     .string({
       invalid_type_error: 'Email must be a string',
     })
-    .min(1, { message: 'Email is required' })
     .email({ message: 'Invalid email address' }),
   message: z
     .string({
@@ -19,4 +18,10 @@ const validate = z.object({
     .min(1, { message: 'Message is required' }),
 });
 
-export default validate;
+export const SearchValidate = z.object({
+  search: z
+    .string({
+      invalid_type_error: 'Search must be a string',
+    })
+    .min(1, { message: 'Search is required' }),
+});

@@ -23,7 +23,6 @@ const TestPagination: React.FC<Props> = ({
   for (let page = startPage; page <= endPage; page++) {
     paginatioButtons.push(page);
   }
-  // console.log(paths, totalCount, currentPage);
   return (
     <div className='flex items-center justify-center gap-2 my-8'>
       {currentPage !== 1 && (
@@ -47,8 +46,8 @@ const TestPagination: React.FC<Props> = ({
                 key={number}
                 className={`inline-flex items-center justify-center  text-md font-medium h-9 w-9 px-4 rounded ${
                   number === currentPage
-                    ? ' bg-blue-500 text-gray-100 hover:bg-blue-400'
-                    : 'bg-white text-blue-400 outline outline-gray-100 hover:bg-gray-200 hover:text-accent-foreground'
+                    ? ' bg-blue-500 text-gray-100 hover:bg-blue-400 outline outline-blue-500'
+                    : 'bg-white text-blue-500 outline outline-gray-100 hover:bg-gray-200 hover:text-accent-foreground'
                 }`}
               >
                 {String(number)}

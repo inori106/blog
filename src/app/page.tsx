@@ -8,7 +8,6 @@ export default async function Page() {
   const res = await getBlog(1);
   const datas = res.datas;
   const totalCount = res.totalCount;
-  const str = 'test';
 
   return (
     <>

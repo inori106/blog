@@ -1,39 +1,40 @@
 'use clinet';
 import { useRef } from 'react';
-import { formActions } from '@/actions/formaction';
-import { useFormStatus, useFormState } from 'react-dom';
+import { formActions } from '@/actions/ContactAction';
+import { useFormState } from 'react-dom';
 import SubmitButton from '@/components/common/button/Submit';
-import { useRouter } from 'next/navigation';
+import { ContactFormState } from '@/types/form';
 import { FiGithub } from 'react-icons/fi';
 import { RiTwitterXLine } from 'react-icons/ri';
 
 const ContactFrom: React.FC = () => {
-  const formref = useRef<HTMLFormElement>(null);
-  const router = useRouter();
-  const initialState = {
-    errors: {},
-    messages: null,
+  const initialState: ContactFormState = {
+    errors: {
+      name: [],
+      email: [],
+      message: [],
+    },
+    message: null,
   };
-  // const { state, dispatch } = useFormState(formActions,initialState);
+
+  const [state, dispatch] = useFormState(formActions, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
   return (
     <div className='flex items-center'>
       <div className='bg-white dark:bg-gray-900 rounded-lg shadow-lg p-10 w-full'>
         <h2 className='text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100'>
           Contact Us
         </h2>
+        {state?.message && (
+          <p className='text-green-500 text-xs mt-1'>{state.message}</p>
+        )}
         <form
           className='space-y-8'
-          action={async (formData: FormData) => {
-            formref.current?.reset();
-            const res = await formActions(formData);
-            if (res === true) {
-              router.push('/');
-              alert('Success');
-            } else {
-              alert('送信に失敗しました');
-            }
+          action={async (payload: FormData) => {
+            await dispatch(payload);
+            if (state.message?.length === 0) formRef.current?.reset();
           }}
-          ref={formref}
+          ref={formRef}
         >
           <div>
             <label
@@ -49,6 +50,9 @@ const ContactFrom: React.FC = () => {
               placeholder='Enter your name'
               type='text'
             />
+            {state?.errors?.name && (
+              <p className='text-red-500 text-xs mt-1'>{state.errors?.name}</p>
+            )}
           </div>
           <div>
             <label
@@ -64,6 +68,9 @@ const ContactFrom: React.FC = () => {
               placeholder='Enter your email'
               type='email'
             />
+            {state?.errors?.email && (
+              <p className='text-red-500 text-xs mt-1'>{state.errors?.email}</p>
+            )}
           </div>
           <div>
             <label
@@ -79,6 +86,11 @@ const ContactFrom: React.FC = () => {
               placeholder='Enter your message'
               rows={5}
             />
+            {state?.errors?.message && (
+              <p className='text-red-500 text-xs mt-1'>
+                {state.errors?.message}
+              </p>
+            )}
           </div>
           <div className='flex container items-center justify-between'>
             <SubmitButton pretext='Send' loadingtext='Sending...' />

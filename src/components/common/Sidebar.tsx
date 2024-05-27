@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { getCategories } from '@/lib/client';
 import { Category } from '@/types/blog';
-import { redirect } from 'next/navigation';
 import SearchForm from '../blog/SearchForm';
 
 export const revalidate = 0;

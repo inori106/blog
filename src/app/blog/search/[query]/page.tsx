@@ -2,6 +2,7 @@ import { getSearchblog } from '@/lib/client';
 import BlogList from '@/components/blog/BlogList';
 import Section from '@/components/blog/Section';
 import TestPagination from '@/components/blog/Pagination';
+
 export const revalidate = 0;
 export default async function SearchPage({
   params,
@@ -16,7 +17,7 @@ export default async function SearchPage({
   return (
     <div>
       {searchblog.length === 0 ? (
-        <Section title='No Result' />
+        <Section title={`${query} : No Result`} />
       ) : (
         <>
           <Section title={`Search: ${query}`} />

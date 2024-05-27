@@ -13,7 +13,6 @@ export default async function CategoryPage({
   const categoryname = await getCategoryname(params.id);
   const filterCATblog = res.datas;
   const totalCount = res.totalCount;
-  console.log(totalCount);
 
   return (
     <div>
