@@ -14,7 +14,7 @@ if (!process.env.MICROCMS_API_KEY) {
   throw new Error('MICROCMS_API_KEY is required');
 }
 
-export const LIST_LIMIT: number = 10;
+export const LIST_LIMIT: number = 1;
 
 export const client = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN as string,
@@ -47,11 +47,10 @@ export const getCategoryname = async (id: string) => {
   })) as Category;
   return res.name as string;
 };
-export const getdetail = async (id: string, queries: MicroCMSQueries) => {
+export const getdetail = async (id: string) => {
   const res = await client.getListDetail<Blog>({
     endpoint: process.env.MICROCMS_ENDPOINT as string,
     contentId: id,
-    queries,
   });
   return res;
 };

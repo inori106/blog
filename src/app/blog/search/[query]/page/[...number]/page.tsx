@@ -11,18 +11,19 @@ export default async function SearcPagiNation({
   params: { query: string; number: string };
 }) {
   const query = decodeURI(params.query);
-  const res = await getSearchblog(query, Number(params.number));
-  const searchblog = res.datas;
-  const totalCount = res.totalCount;
+  const { datas, totalCount } = await getSearchblog(
+    query,
+    Number(params.number)
+  );
 
   return (
     <div>
-      {searchblog.length === 0 ? (
+      {datas.length === 0 ? (
         <Section title='No Result' />
       ) : (
         <>
           <Section title={`Nation Search: ${query}`} />
-          <BlogList props={searchblog} />
+          <BlogList props={datas} />
           <TestPagination
             totalCount={totalCount}
             currentPage={Number(params.number)}

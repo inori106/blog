@@ -8,9 +8,7 @@ export default async function BlogPageNation({
 }: {
   params: { number: string };
 }) {
-  const res = await getBlog(Number(params.number));
-  const datas = res.datas;
-  const totalCount = res.totalCount;
+  const { datas, totalCount } = await getBlog(Number(params.number));
 
   return (
     <>

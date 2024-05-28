@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const Paths = [
-  { name: 'About', href: '/' },
+  { name: 'About', href: '/about' },
   { name: 'Blog', href: '/' },
   { name: 'Contact', href: '/contact' },
 ];
@@ -9,7 +9,7 @@ const Paths = [
 const Fotter: React.FC = () => {
   return (
     <>
-      <footer className='bg-white dark:bg-gray-900 py-6 px-4 md:px-6 shadow-md dark:shadow-none'>
+      <footer className='bg-gray-50/95 dark:bg-gray-900 py-6 px-4 md:px-6 shadow-md shadow-t dark:shadow-none'>
         <div className='container mx-auto flex flex-col items-center justify-between md:flex-row'>
           <p className='text-gray-600 dark:text-gray-400 text-sm'>
             © 2024 My Blog. All rights reserved.

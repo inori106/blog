@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='ja'>
       <body className={inter.className}>
         <Header />
         <div className='px-4 md:px-6 lg:px-28 2xl:px-64 pt-28 xl:flex gap-8 pb-6'>

@@ -31,7 +31,7 @@ const ContactFrom: React.FC = () => {
         <form
           className='space-y-8'
           action={async (payload: FormData) => {
-            await dispatch(payload);
+            dispatch(payload);
             if (state.message?.length === 0) formRef.current?.reset();
           }}
           ref={formRef}
