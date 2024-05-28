@@ -70,7 +70,6 @@ const BlogList: React.FC<Props> = async ({ props }) => {
         ))}
       </div>
     </main>
-    // </div>
   );
 };
 

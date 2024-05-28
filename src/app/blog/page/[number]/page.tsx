@@ -11,7 +11,7 @@ export default async function BlogPageNation({
   const { datas, totalCount } = await getBlog(Number(params.number));
 
   return (
-    <>
+    <div>
       <Section title={`${params.number} ページ`} />
       <BlogList props={datas} />
       <Pagination
@@ -19,6 +19,6 @@ export default async function BlogPageNation({
         currentPage={Number(params.number)}
         paths='/'
       />
-    </>
+    </div>
   );
 }

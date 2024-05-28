@@ -18,7 +18,7 @@ export default async function SearchPage({
       {datas.length === 0 ? (
         <Section title={`${query} : No Result`} />
       ) : (
-        <>
+        <div>
           <Section title={`Search: ${query}`} />
           <BlogList props={datas} />
           <TestPagination
@@ -26,7 +26,7 @@ export default async function SearchPage({
             currentPage={1}
             paths={`/search/${query}/`}
           />
-        </>
+        </div>
       )}
     </div>
   );

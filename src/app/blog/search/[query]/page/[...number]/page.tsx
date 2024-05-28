@@ -21,7 +21,7 @@ export default async function SearcPagiNation({
       {datas.length === 0 ? (
         <Section title='No Result' />
       ) : (
-        <>
+        <div>
           <Section title={`Nation Search: ${query}`} />
           <BlogList props={datas} />
           <TestPagination
@@ -29,7 +29,7 @@ export default async function SearcPagiNation({
             currentPage={Number(params.number)}
             paths={`/search/${query}/`}
           />
-        </>
+        </div>
       )}
     </div>
   );
