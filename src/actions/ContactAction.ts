@@ -17,7 +17,6 @@ export async function formActions(prevSaet: any, formData: FormData) {
     return errors;
   }
   const { name, email, message } = validateResult.data;
-  redirect('/');
 
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -38,6 +37,12 @@ export async function formActions(prevSaet: any, formData: FormData) {
     <p>メールアドレス: ${email}</p>
     <p>${message}</p>`,
   };
-
-  transporter.sendMail(toHostMailData, (error, info) => {});
+  redirect('/');
+  transporter.sendMail(toHostMailData, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
 }

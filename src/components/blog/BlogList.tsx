@@ -44,12 +44,15 @@ const BlogList: React.FC<Props> = async ({ props }) => {
                     {data.title}
                   </Link>
                 </h2>
-                <div className='xl:flex items-center mb-2 xl:space-x-2 dark:text-gray-400'>
-                  <p>投稿日：{dayjs(data.createdAt).format('YYYY-MM-DD')}</p>
+
+                <div className='xl:flex items-center text-gray-500 dark:text-gray-400'>
+                  <div className=''>
+                    投稿日：{dayjs(data.createdAt).format('YYYY-MM-DD')}
+                  </div>
                   {data.updatedAt && (
+                    // <div className='gap-3 h-4 bg-gray-300 dark:bg-gray-700'>
                     <div>
-                      <div className='xl:h-4 xl:w-px bg-gray-300 dark:bg-gray-700'></div>
-                      <p>
+                      <p className='xl:pl-2'>
                         更新日：{dayjs(data.updatedAt).format('YYYY-MM-DD')}
                       </p>
                     </div>

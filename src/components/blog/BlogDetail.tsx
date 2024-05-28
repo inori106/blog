@@ -24,12 +24,12 @@ const BlogDetail: React.FC<Props> = ({
               <h1 className='text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl dark:text-gray-50'>
                 {title}
               </h1>
-              <div className='flex items-center space-x-2 text-gray-500 dark:text-gray-400'>
-                <div className='h-4 bg-gray-300 dark:bg-gray-700' />
-                <div>投稿日：{create}</div>
+              <div className='md:flex items-center text-gray-500 dark:text-gray-400'>
+                <div className='pl-2'>投稿日：{create}</div>
                 {update && (
-                  <div className='h-4 w-px bg-gray-300 dark:bg-gray-700'>
-                    <p>更新日：{update}</p>
+                  // <div className='gap-3 h-4 bg-gray-300 dark:bg-gray-700'>
+                  <div>
+                    <p className='pl-2'>更新日：{update}</p>
                   </div>
                 )}
               </div>
