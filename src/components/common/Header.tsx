@@ -58,7 +58,6 @@ const Header: React.FC = () => {
                     href={path.href}
                     className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-[#0d1117]
                     text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'
-                    onClick={handleMenuToggle}
                   >
                     {path.name}
                   </Link>

@@ -5,7 +5,6 @@ import SubmitButton from '../common/button/Submit';
 import { useFormState } from 'react-dom';
 import { SearchFormState } from '@/types/form';
 import { useRef } from 'react';
-import { useActionState } from 'react';
 
 const SearchForm: React.FC = () => {
   const initialState: SearchFormState = {

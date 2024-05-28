@@ -3,8 +3,6 @@ import { getCategories } from '@/lib/client';
 import { Category } from '@/types/blog';
 import SearchForm from '../blog/SearchForm';
 
-export const revalidate = 0;
-
 const Sidebar: React.FC = async () => {
   const categories = await getCategories();
 
