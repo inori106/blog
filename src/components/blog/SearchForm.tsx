@@ -17,7 +17,7 @@ const SearchForm: React.FC = () => {
   const searchRef = useRef<HTMLFormElement>(null);
 
   return (
-    <>
+    <div>
       <div className='relative'>
         <form
           action={async (payload: FormData) => {
@@ -44,7 +44,7 @@ const SearchForm: React.FC = () => {
       {state?.errors?.search && (
         <p className='text-red-500 text-xs mt-1'>{state.errors?.search}</p>
       )}
-    </>
+    </div>
   );
 };
 

@@ -8,7 +8,7 @@ const Parse: React.FC<{ content: string }> = ({ content }) => {
   useEffect(() => {
     hljs.highlightAll();
   }, []);
-  return <>{parse(content)}</>;
+  return <div>{parse(content)}</div>;
 };
 
 export default Parse;

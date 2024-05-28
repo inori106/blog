@@ -8,7 +8,7 @@ const Paths = [
 
 const Fotter: React.FC = () => {
   return (
-    <>
+    <div>
       <footer className='bg-gray-50/95 dark:bg-gray-900 py-6 px-4 md:px-6 shadow-md shadow-t dark:shadow-none'>
         <div className='container mx-auto flex flex-col items-center justify-between md:flex-row'>
           <p className='text-gray-600 dark:text-gray-400 text-sm'>
@@ -30,7 +30,7 @@ const Fotter: React.FC = () => {
           </nav>
         </div>
       </footer>
-    </>
+    </div>
   );
 };
 

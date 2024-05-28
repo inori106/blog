@@ -47,12 +47,12 @@ const BlogList: React.FC<Props> = async ({ props }) => {
                 <div className='xl:flex items-center mb-2 xl:space-x-2 dark:text-gray-400'>
                   <p>投稿日：{dayjs(data.createdAt).format('YYYY-MM-DD')}</p>
                   {data.updatedAt && (
-                    <>
+                    <div>
                       <div className='xl:h-4 xl:w-px bg-gray-300 dark:bg-gray-700'></div>
                       <p>
                         更新日：{dayjs(data.updatedAt).format('YYYY-MM-DD')}
                       </p>
-                    </>
+                    </div>
                   )}
                 </div>
                 <p className='text-gray-600 dark:text-gray-400'>

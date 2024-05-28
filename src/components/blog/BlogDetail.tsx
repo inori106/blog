@@ -16,7 +16,7 @@ const BlogDetail: React.FC<Props> = ({
   const create = dayjs(createdAt).format('YYYY-MM-DD');
   const update = dayjs(updatedAt).format('YYYY-MM-DD');
   return (
-    <>
+    <div>
       <section className='bg-gray-100 dark:bg-gray-900 py-6 md:py-10 lg:py-16'>
         <div className='container mx-auto px-4 md:px-6'>
           <div className='max-w-3xl mx-auto'>
@@ -28,10 +28,9 @@ const BlogDetail: React.FC<Props> = ({
                 <div className='h-4 bg-gray-300 dark:bg-gray-700' />
                 <div>投稿日：{create}</div>
                 {update && (
-                  <>
-                    <div className='h-4 w-px bg-gray-300 dark:bg-gray-700' />
-                    <div>更新日：{update}</div>
-                  </>
+                  <div className='h-4 w-px bg-gray-300 dark:bg-gray-700'>
+                    <p>更新日：{update}</p>
+                  </div>
                 )}
               </div>
               <p className='pl-2 dark:text-gray-400'>{description}</p>
@@ -70,7 +69,7 @@ const BlogDetail: React.FC<Props> = ({
         <p>{description}</p>
         <Parse content={content} />
       </div>
-    </>
+    </div>
   );
 };
 
