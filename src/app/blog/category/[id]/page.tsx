@@ -13,13 +13,19 @@ export default async function CategoryPage({
 
   return (
     <div>
-      <Section title={`カテゴリー：${categoryname}`} />
-      <BlogList props={datas} />
-      <Pagination
-        totalCount={totalCount}
-        currentPage={1}
-        paths={`/category/${params.id}/`}
-      />
+      {datas.length === 0 ? (
+        <Section title={`${categoryname} : No Result`} />
+      ) : (
+        <div>
+          <Section title={`カテゴリー：${categoryname}`} />
+          <BlogList props={datas} />
+          <Pagination
+            totalCount={totalCount}
+            currentPage={1}
+            paths={`/category/${params.id}/`}
+          />
+        </div>
+      )}
     </div>
   );
 }

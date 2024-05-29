@@ -26,7 +26,7 @@ const ContactFrom: React.FC = () => {
           Contact Us
         </h2>
         {state?.message && (
-          <p className='text-green-500 text-xs mt-1'>{state.message}</p>
+          <p className='text-red-500 text-xl mt-1'>{state.message}</p>
         )}
         <form
           className='space-y-8'

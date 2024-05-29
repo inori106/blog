@@ -12,13 +12,19 @@ export default async function BlogPageNation({
 
   return (
     <div>
-      <Section title={`${params.number} ページ`} />
-      <BlogList props={datas} />
-      <Pagination
-        totalCount={totalCount}
-        currentPage={Number(params.number)}
-        paths='/'
-      />
+      {datas.length === 0 ? (
+        <Section title='No Result' />
+      ) : (
+        <div>
+          <Section title={`${params.number} ページ`} />
+          <BlogList props={datas} />
+          <Pagination
+            totalCount={totalCount}
+            currentPage={Number(params.number)}
+            paths='/'
+          />
+        </div>
+      )}
     </div>
   );
 }

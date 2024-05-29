@@ -16,13 +16,19 @@ export default async function CategoryPagiNation({
 
   return (
     <div>
-      <Section title={`カテゴリー：${categoryname}`} />
-      <BlogList props={datas} />
-      <Pagination
-        totalCount={totalCount}
-        currentPage={Number(params.number)}
-        paths={`/category/${params.id}/`}
-      />
+      {datas.length === 0 ? (
+        <Section title={`${categoryname} : No Result`} />
+      ) : (
+        <div>
+          <Section title={`カテゴリー：${categoryname}`} />
+          <BlogList props={datas} />
+          <Pagination
+            totalCount={totalCount}
+            currentPage={Number(params.number)}
+            paths={`/category/${params.id}/`}
+          />
+        </div>
+      )}
     </div>
   );
 }
