@@ -32,7 +32,9 @@ const ContactFrom: React.FC = () => {
           className='space-y-8'
           action={async (payload: FormData) => {
             dispatch(payload);
-            if (state.message?.length === 0) formRef.current?.reset();
+            if (state.message?.length === 0) {
+              formRef.current?.reset();
+            }
           }}
           ref={formRef}
         >
@@ -84,7 +86,7 @@ const ContactFrom: React.FC = () => {
               id='message'
               name='message'
               placeholder='Enter your message'
-              rows={5}
+              rows={3}
             />
             {state?.errors?.message && (
               <p className='text-red-500 text-xs mt-1'>

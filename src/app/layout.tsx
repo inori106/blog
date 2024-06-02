@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Fotter from '@/components/common/Fotter';
 import Header from '@/components/common/Header';
-import Sidebar from '@/components/common/Sidebar';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -18,16 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ja'>
+    <html lang='ja' suppressHydrationWarning={true}>
       <body className={inter.className}>
-        <Header />
-        <div className='px-4 md:px-6 lg:px-28 2xl:px-64 pt-28 xl:flex gap-8 pb-6'>
-          <div className='lg:w-4/6'>{children}</div>
-          <div className='lg:w-2/6'>
-            <Sidebar />
-          </div>
+        <div className='flex flex-col min-h-screen justify-between'>
+          <Header />
+          <div className='py-4 my-auto grow'>{children}</div>
+          <Fotter />
         </div>
-        <Fotter />
       </body>
     </html>
   );

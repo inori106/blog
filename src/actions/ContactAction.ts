@@ -2,8 +2,13 @@
 import nodemailer from 'nodemailer';
 import { redirect } from 'next/navigation';
 import { ContactValidate } from '@/lib/validation';
+import { ContactFormState } from '@/types/form';
 
-export async function formActions(prevSaet: any, formData: FormData) {
+export async function formActions(
+  prevSaet: ContactFormState,
+  formData: FormData
+) {
+  let redirectRequest = false;
   const validateResult = ContactValidate.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
@@ -37,12 +42,13 @@ export async function formActions(prevSaet: any, formData: FormData) {
     <p>メールアドレス: ${email}</p>
     <p>${message}</p>`,
   };
-  redirect('/');
-  transporter.sendMail(toHostMailData, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+  try {
+    await transporter.sendMail(toHostMailData);
+  } catch (error) {
+    return {
+      errors: {},
+      message: 'Failed to send email',
+    };
+  }
+  redirect('/success');
 }

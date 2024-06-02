@@ -6,7 +6,7 @@ import { FiX } from 'react-icons/fi';
 const Paths = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Blog', href: '/' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Contact', href: '/contact' },
 ];
 const Header: React.FC = () => {
@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   const handleMenuToggle = () => setIsOpen(!isOpen);
   return (
     <div className='dark:bg-gray-950 dark:text-gray-50'>
-      <header className=''>
+      <header className='pb-16'>
         <div
           className='flex items-center justify-between bg-white dark:bg-gray-900 shadow-sm py-4 px-4 md:px-6 xl:px-48 mx-auto border-b dark:border-none
       fixed top-0 left-0 right-0 z-50 opacity-95 dark:opacity-100 transition-all duration-300 ease-in-out'

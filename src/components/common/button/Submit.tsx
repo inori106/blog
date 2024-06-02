@@ -3,9 +3,8 @@ import { useFormStatus } from 'react-dom';
 type Props = {
   pretext?: string;
   loadingtext?: string;
-  ref?: React.RefObject<HTMLFormElement>;
 };
-const SubmitButton: React.FC<Props> = ({ pretext, loadingtext, ref }) => {
+const SubmitButton: React.FC<Props> = ({ pretext, loadingtext }) => {
   const { pending } = useFormStatus();
 
   return (
