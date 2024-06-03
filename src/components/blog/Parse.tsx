@@ -31,7 +31,7 @@ const Parse: React.FC<{ content: string }> = ({ content }) => {
             <EditCode
               data_filename={data_filename}
               code={{ data: code.data }}
-              children={domNode.children as DOMNode[]}
+              domNode={{ children: domNode.children as DOMNode[] }}
               options={options}
             />
           );

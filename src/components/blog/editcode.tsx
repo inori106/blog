@@ -8,14 +8,14 @@ type Props = {
   code: {
     data: string;
   };
-  children: DOMNode[];
+  domNode: { children: DOMNode[] };
   options: HTMLReactParserOptions;
 };
 const EditCode: React.FC<Props> = ({
   data_filename,
   code,
   options,
-  children,
+  domNode: { children },
 }) => {
   const [isCopied, setIsCopied] = useState(false);
   return (
