@@ -3,7 +3,6 @@ import Section from '@/components/blog/Section';
 import { getBlog } from '@/lib/client';
 import Pagination from '@/components/blog/Pagination';
 
-export const revalidate = 0;
 export default async function BlogPage() {
   const { datas, totalCount } = await getBlog(1);
 

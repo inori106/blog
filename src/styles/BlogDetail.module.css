@@ -13,14 +13,10 @@
   color: #60a5fa;
 }
 
-.content > div > pre {
-  color: #000;
-  /* --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
-    0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  border-radius: 0.5rem; */
+.content > pre {
+  color: black;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 @media (prefers-color-scheme: dark) {

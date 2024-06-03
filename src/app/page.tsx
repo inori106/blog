@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 export default async function Page() {
   return (
@@ -20,7 +19,6 @@ export default async function Page() {
               prefetch={false}
             >
               Get Started
-              {/* <ArrowRightIcon className='ml-2 h-5 w-5' /> */}
             </Link>
             <Link
               href='#'
@@ -28,7 +26,6 @@ export default async function Page() {
               prefetch={false}
             >
               Learn More
-              {/* <ArrowRightIcon className='ml-2 h-5 w-5' /> */}
             </Link>
           </div>
         </div>

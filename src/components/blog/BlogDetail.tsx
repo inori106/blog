@@ -27,7 +27,6 @@ const BlogDetail: React.FC<Props> = ({
               <div className='md:flex items-center text-gray-500 dark:text-gray-400'>
                 <div className='pl-2'>投稿日：{create}</div>
                 {update && (
-                  // <div className='gap-3 h-4 bg-gray-300 dark:bg-gray-700'>
                   <div>
                     <p className='pl-2'>更新日：{update}</p>
                   </div>
@@ -54,18 +53,6 @@ const BlogDetail: React.FC<Props> = ({
         </div>
       </section>
       <div className='prose prose-gray dark:prose-invert max-w-none'>
-        {/* <figure>
-          <Image
-            alt='Eyecatch Image'
-            className='rounded-lg object-cover w-full'
-            height={200}
-            src={eyecatch?.url ?? '/images/no-image.png'}
-            width={400}
-          />
-          <figcaption className='text-sm text-gray-500 dark:text-gray-400 mt-2'>
-            A whimsical illustration of the Joke Tax Chronicles
-          </figcaption>
-        </figure> */}
         <p>{description}</p>
         <Parse content={content} />
       </div>
