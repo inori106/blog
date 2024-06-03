@@ -23,6 +23,7 @@ export default function RootLayout({
         <div className='flex flex-col min-h-screen justify-between'>
           <Header />
           <div className='py-4 my-auto grow'>{children}</div>
+          <SpeedInsights />
           <Fotter />
         </div>
       </body>
