@@ -7,7 +7,7 @@ import parse, {
   Text,
 } from 'html-react-parser';
 import { useEffect } from 'react';
-import styles from '../../styles/BlogDetail.module.css';
+import styles from '../../styles/parse.module.css';
 import Prism from 'prismjs';
 import '../../styles/prism.css';
 import 'prismjs/components/prism-typescript';

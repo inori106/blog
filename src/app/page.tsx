@@ -1,8 +1,8 @@
 import Link from 'next/link';
 export default async function Page() {
   return (
-    <main className='flex-1'>
-      <section className='bg-gray-900 text-white py-12 md:py-24 lg:py-32'>
+    <main className='flex-1 px-64'>
+      <section className='py-12 md:py-24 lg:py-32'>
         <div className='container mx-auto px-4 md:px-6 text-center'>
           <h1 className='text-3xl md:text-5xl font-bold mb-4'>
             The React Framework
@@ -14,18 +14,18 @@ export default async function Page() {
           </p>
           <div className='flex justify-center gap-4'>
             <Link
-              href='#'
-              className='inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-md transition-colors'
+              href='/blog'
+              className='inline-flex items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300'
               prefetch={false}
             >
-              Get Started
+              Read a blog
             </Link>
             <Link
-              href='#'
-              className='inline-flex items-center justify-center bg-transparent border border-white hover:bg-white hover:text-gray-900 text-white font-medium py-3 px-6 rounded-md transition-colors'
+              href='/contact'
+              className='inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300'
               prefetch={false}
             >
-              Learn More
+              Contact us
             </Link>
           </div>
         </div>

@@ -5,8 +5,8 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { FiX } from 'react-icons/fi';
 const Paths = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
   { name: 'Blog', href: '/blog' },
+  { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
 ];
 const Header: React.FC = () => {
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           className='flex items-center justify-between bg-white dark:bg-gray-900 shadow-sm py-4 px-4 md:px-6 xl:px-48 mx-auto border-b dark:border-none
       fixed top-0 left-0 right-0 z-50 opacity-95 dark:opacity-100 transition-all duration-300 ease-in-out'
         >
-          <h1 className='text-2xl font-bold text-gray-800 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'>
+          <h1 className='text-2xl font-bold hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-50'>
             <Link href='/'>My Blog</Link>
           </h1>
           <nav className='hidden sm:flex gap-6'>
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
               <Link
                 key={path.name}
                 href={path.href}
-                className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'
+                className='text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-gray-50 text-lg'
               >
                 {path.name}
               </Link>

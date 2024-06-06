@@ -1,12 +1,15 @@
+import { LuThumbsUp } from 'react-icons/lu';
+
 export default function SuccessPage() {
   return (
-    <div className='flex justify-center items-center h-screen'>
-      <div className='container mx-auto dark:text-gray-200'>
-        <h1 className='text-3xl font-bold text-center'>
-          Thank you for your message!
-        </h1>
-        <p className='text-center mt-4'>
-          I will get back to you as soon as possible.
+    <div className='flex justify-center items-center'>
+      <div className='container mx-auto dark:text-gray-200 text-center'>
+        <LuThumbsUp color='green' size={80} className='mx-auto text-center' />
+        <h1 className='text-4xl font-bold py-10'>Thank you!</h1>
+        <p className='text-lg'>
+          We appreciate your submission.
+          <br />
+          We&apos;ll review it and get back to you soon.
         </p>
       </div>
     </div>

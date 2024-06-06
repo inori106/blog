@@ -19,7 +19,7 @@ const EditCode: React.FC<Props> = ({
 }) => {
   const [isCopied, setIsCopied] = useState(false);
   return (
-    <div className='rounded-md ... overflow-x-auto border border-gray-200 dark:border-gray-800'>
+    <div className='rounded-md ... overflow-x-auto border border-gray-200 dark:border-gray-800 my-8'>
       <div
         className='flex justify-between items-center px-4 py-2 bg-gray-100 dark:bg-[#000000] dark:text-gray-300'
         data-filename={data_filename}

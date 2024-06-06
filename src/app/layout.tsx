@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang='ja'>
       <body className={inter.className}>
-        <div className='flex flex-col min-h-screen justify-between'>
+        <div className='flex flex-col min-h-screen'>
           <Header />
-          <div className='py-4 my-auto grow'>{children}</div>
+          <div className='py-4 my-auto'>{children}</div>
           <SpeedInsights />
           <Fotter />
         </div>

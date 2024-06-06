@@ -8,7 +8,6 @@ export async function formActions(
   prevSaet: ContactFormState,
   formData: FormData
 ) {
-  let redirectRequest = false;
   const validateResult = ContactValidate.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),

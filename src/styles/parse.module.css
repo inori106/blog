@@ -1,0 +1,74 @@
+.content > h1 {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 8px 0px 8px 0px;
+  border-bottom: 1px solid #d6e3ed;
+  /* margin: revert-layer; */
+}
+
+.content > h2 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 12px 0px 12px 0px;
+  border-bottom: 1px solid #d6e3ed;
+  /* margin: revert-layer; */
+}
+
+.contetn > h3 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 8px 0px 8px 0px;
+}
+
+.content > p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 16px 0px;
+}
+
+.content > ul {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px 0px;
+  padding: 0px 0px 0px 20px;
+}
+.content > ul > li {
+  list-style-type: disc;
+  padding: 6px 0px;
+}
+
+.content > p > a {
+  color: #3b82f6;
+}
+
+.content > p > a :hover {
+  color: #60a5fa;
+}
+
+.content > figure {
+  width: 100%;
+  height: auto;
+  padding: 15px 0px 15px 0px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .content > h1 {
+    color: #ededed;
+  }
+  .content > h2 {
+    color: #ededed;
+  }
+  .content > h3 {
+    color: #ededed;
+  }
+  .content > p {
+    color: #ededed;
+  }
+  .content > ul {
+    color: #ededed;
+  }
+  .content > ul > li {
+    margin: 5px 0px;
+    color: #ededed;
+  }
+}

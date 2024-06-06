@@ -1,6 +1,7 @@
 import { getdetail } from '@/lib/client';
 import BlogDetail from '@/components/blog/BlogDetail';
 
+export const revalidate = 0;
 export default async function BlogDetailPage({
   params,
 }: {
@@ -21,8 +22,6 @@ export default async function BlogDetailPage({
         publishedAt={''}
         revisedAt={''}
       />
-
-      <h1>{data.title}</h1>
     </div>
   );
 }
