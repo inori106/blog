@@ -20,7 +20,7 @@ const ContactFrom: React.FC = () => {
   const [state, dispatch] = useFormState(formActions, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   return (
-    <div className='flex items-center'>
+    <div className='flex items-center px-4 sm:px-0'>
       <div className='bg-white dark:bg-gray-900 rounded-lg shadow-lg p-10 w-full'>
         <h2 className='text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100'>
           Contact Us

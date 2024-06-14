@@ -8,10 +8,9 @@ export default async function BlogPage() {
   const { datas, totalCount } = await getBlog(1);
 
   return (
-    <div>
-      {/* <Section title='Latest Post List' /> */}
+    <>
       <BlogList props={datas} />
       <Pagination totalCount={totalCount} currentPage={1} paths='/' />
-    </div>
+    </>
   );
 }

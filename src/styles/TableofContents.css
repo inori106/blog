@@ -1,0 +1,28 @@
+.toc li.toc-list-item {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.toc a.toc-link.node-name--H2.is-active-link {
+  color: #0072f5;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.toc a.toc-link.node-name--H2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+}
+
+.toc a.toc-link.node-name--H3.is-active-link {
+  color: #0072f5;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.toc a.toc-link.node-name--H3 {
+  font-size: 15px;
+  color: #666;
+  padding-left: 10px;
+}

@@ -5,6 +5,7 @@ import SubmitButton from '../common/button/Submit';
 import { useFormState } from 'react-dom';
 import { SearchFormState } from '@/types/form';
 import { useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 const SearchForm: React.FC = () => {
   const initialState: SearchFormState = {
@@ -14,32 +15,33 @@ const SearchForm: React.FC = () => {
   };
   const [state, dispatch] = useFormState(SearchAction, initialState);
   const searchRef = useRef<HTMLFormElement>(null);
-
+  const router = useRouter();
   return (
-    <div>
-      <div className='relative'>
-        <form
-          action={async (payload: FormData) => {
-            dispatch(payload);
+    <div className='relative'>
+      <form
+        action={async (payload: FormData) => {
+          dispatch(payload);
+          if (!state?.errors?.search === null) {
             searchRef.current?.reset();
-          }}
-          className='flex gap-2'
-          ref={searchRef}
-        >
-          <FaSearch
-            color='gray'
-            className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400'
-          />
-          <input
-            className='w-full pl-10 pr-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50'
-            placeholder='Search blog posts...'
-            type='text'
-            name='search'
-            id='search'
-          />
-          <SubmitButton pretext='Search' loadingtext='Searching...' />
-        </form>
-      </div>
+          }
+          router.refresh();
+          router.push(`/blog/search/${payload.get('search')}`);
+        }}
+        className='flex'
+        ref={searchRef}
+      >
+        <input
+          className='w-full pl-1 py-2 rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50'
+          placeholder='Search blog posts...'
+          type='text'
+          name='search'
+          id='search'
+        />
+        <SubmitButton
+          pretext={<FaSearch color='white' className='m-auto' size={15} />}
+          loadingtext='...'
+        />
+      </form>
       {state?.errors?.search && (
         <p className='text-red-500 text-xs mt-1'>{state.errors?.search}</p>
       )}

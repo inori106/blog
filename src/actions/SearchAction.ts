@@ -1,7 +1,5 @@
 'use server';
-import { revalidatePath, revalidateTag } from 'next/cache';
 import { SearchValidate } from '@/lib/validation';
-import { redirect } from 'next/navigation';
 
 export async function SearchAction(prevState: any, formData: FormData) {
   const validateResult = SearchValidate.safeParse({
@@ -14,5 +12,5 @@ export async function SearchAction(prevState: any, formData: FormData) {
     return errors;
   }
   const { search } = validateResult.data;
-  redirect(`/blog/search/${encodeURIComponent(search)}`);
+  // permanentRedirect(`/blog/search/${search}`);
 }

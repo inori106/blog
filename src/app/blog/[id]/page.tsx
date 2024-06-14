@@ -9,7 +9,7 @@ export default async function BlogDetailPage({
 }) {
   const data = await getdetail(params.id);
   return (
-    <div>
+    <>
       <BlogDetail
         title={data.title}
         content={data.content}
@@ -22,6 +22,6 @@ export default async function BlogDetailPage({
         publishedAt={''}
         revisedAt={''}
       />
-    </div>
+    </>
   );
 }

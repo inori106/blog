@@ -117,11 +117,10 @@ pre[class*='language-'] {
   cursor: help;
 }
 
-/* ダークモードに対応 */
 @media (prefers-color-scheme: dark) {
   code[class*='language-'],
   pre[class*='language-'] {
-    color: #000;
+    color: #1111;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 16px;
     text-align: left;
@@ -150,7 +149,7 @@ pre[class*='language-'] {
   }
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    background: #0a0a0a;
+    background: #111;
   }
   .token.attr-name,
   .token.comment,
@@ -160,7 +159,7 @@ pre[class*='language-'] {
   .token.namespace,
   .token.operator {
     color: #f75f8f;
-    background: #0a0a0a;
+    background: #111;
   }
   .token.property,
   .token.string {
@@ -268,9 +267,9 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
   line-height: normal;
   overflow: visible;
   padding: 0;
-  -webkit-user-select: none;
+  /* -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
+  -ms-user-select: none; */
 }
 div.code-toolbar > .toolbar > .toolbar-item > a,
 div.code-toolbar > .toolbar > .toolbar-item > button,

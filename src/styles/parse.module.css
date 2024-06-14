@@ -1,23 +1,14 @@
-.content > h1 {
-  font-size: 22px;
-  font-weight: 600;
-  padding: 8px 0px 8px 0px;
-  border-bottom: 1px solid #d6e3ed;
-  /* margin: revert-layer; */
-}
-
 .content > h2 {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
   padding: 12px 0px 12px 0px;
   border-bottom: 1px solid #d6e3ed;
-  /* margin: revert-layer; */
 }
 
-.contetn > h3 {
+.content > h3 {
   font-size: 20px;
   font-weight: 600;
-  padding: 8px 0px 8px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .content > p {

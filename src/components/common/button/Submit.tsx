@@ -1,7 +1,7 @@
 import { useFormStatus } from 'react-dom';
 
 type Props = {
-  pretext?: string;
+  pretext?: string | JSX.Element;
   loadingtext?: string;
 };
 const SubmitButton: React.FC<Props> = ({ pretext, loadingtext }) => {

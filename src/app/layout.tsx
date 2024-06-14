@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className='flex flex-col min-h-screen'>
           <Header />
-          <div className='py-4 my-auto'>{children}</div>
+          <main className='my-auto'>{children}</main>
           <SpeedInsights />
           <Fotter />
         </div>
