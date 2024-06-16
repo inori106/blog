@@ -6,6 +6,7 @@ import SubmitButton from '@/components/common/button/Submit';
 import { ContactFormState } from '@/types/form';
 import { FiGithub } from 'react-icons/fi';
 import { RiTwitterXLine } from 'react-icons/ri';
+import Link from 'next/link';
 
 const ContactFrom: React.FC = () => {
   const initialState: ContactFormState = {
@@ -97,7 +98,9 @@ const ContactFrom: React.FC = () => {
           <div className='flex container items-center justify-between'>
             <SubmitButton pretext='Send' loadingtext='Sending...' />
             <div className='flex space-x-4'>
-              <RiTwitterXLine size={30} color='gray' />
+              <Link href='https://twitter.com/' prefetch={false}>
+                <RiTwitterXLine size={30} color='gray' />
+              </Link>
               <FiGithub size={30} color='gray' />
             </div>
           </div>

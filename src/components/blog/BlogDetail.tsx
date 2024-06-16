@@ -77,9 +77,9 @@ const BlogDetail: React.FC<Props> = ({
 
   return (
     <div className='px-4 md:px-6 2xl:px-64 3xl:px-80 lg:flex gap-3 py-8 min-h-screen justify-between space-y-6 lg:space-y-0'>
-      <div className='lg:w-2/3 bg-white dark:bg-gray-900 sm:px-12 px-3 rounded-xl shadow-md py-8 sm:py-20'>
+      <div className='lg:w-2/3 bg-white dark:bg-gray-900 sm:p-12 p-3 rounded-xl shadow-md'>
         <section>
-          <div className=''>
+          <div>
             <div className='max-w-3xl'>
               <div className='space-y-5 pb-8'>
                 <h1 className='text-[30px] font-bold tracking-tight dark:text-gray-50'>
@@ -109,10 +109,6 @@ const BlogDetail: React.FC<Props> = ({
               <p className='text-[20px]  dark:text-[#ededed]'>{description}</p>
             </div>
           </div>
-          {/* <div className='lg:hidden'>
-            <h2 className='text-2xl font-bold dark:text-gray-50 mb-2'>目次</h2>
-            <nav className='toc'></nav>
-          </div> */}
         </section>
         <div className='prose prose-gray dark:prose-invert max-w-none'>
           <div className={styles.content}>{parse(content, options)}</div>

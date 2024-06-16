@@ -3,75 +3,45 @@ import Image from 'next/image';
 export default function AboutPage() {
   return (
     <>
-      <section className=''>
-        <div className='container mx-auto px-4 md:px-6'>
-          <div className='flex flex-col items-center text-center max-w-[700px] mx-auto'>
-            <h1 className='mt-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl lg:text-6xl'>
-              About Us
-            </h1>
-            <p className='mt-6 text-xl text-gray-600 dark:text-gray-400'>
-              Have a question or want to work together? Fill out the form below
-              and we&apos;ll get back to you as soon as possible.
+      <div className='container mx-auto px-4 md:px-6 py-8'>
+        <div className='max-w-[800px] mx-auto bg-white p-6 rounded-lg'>
+          <h1 className='mt-4 text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl lg:text-6xl'>
+            About
+          </h1>
+          <h2 className='mt-6 text-xl text-gray-600 dark:text-gray-400 border-b-2 border-gray-300 font-[600] text-[23px]'>
+            プロフィール
+          </h2>
+          <div className='text-md py-4'>
+            <p>20代のしがないサラリーマンです。IT系ではないです。</p>
+            <p>理工系の大学を卒業しています。</p>
+            <p>
+              研究で少し機械学習を触りました。使用技術はPythonのPyTorchです。
             </p>
           </div>
-        </div>
-      </section>
-      <section className='py-20'>
-        <div className='container mx-auto px-4 md:px-6'>
-          <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-[700px] mx-auto'>
-            <div>
-              <h2 className='text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50'>
-                Our Mission
-              </h2>
-              <p className='mt-6 text-xl text-gray-600 dark:text-gray-400'>
-                At Acme Software, our mission is to create cutting-edge
-                technologies that transform the way businesses operate. We are
-                committed to empowering our clients with the tools and expertise
-                they need to thrive in the digital landscape.
-              </p>
-            </div>
-            <div>
-              <h2 className='text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50'>
-                Our Values
-              </h2>
-              <ul className='mt-6 space-y-4 text-xl text-gray-600 dark:text-gray-400'>
-                <li>Innovation</li>
-                <li>Integrity</li>
-                <li>Collaboration</li>
-                <li>Customer-Centricity</li>
-              </ul>
-            </div>
+          <h2 className='mt-6 text-xl text-gray-600 dark:text-gray-400 border-b-2 border-gray-300 font-[600] text-[23px]'>
+            ブログについて
+          </h2>
+          <div className='text-md py-4'>
+            <p>このブログはNext.jsとTailwind CSSを使って作成しています。</p>
+            <p>
+              ブログの内容は技術的なことから日常のことまで幅広く書いていきます。
+            </p>
+            <p>技術的なことは主にPythonとJavaScriptについて書いていきます。</p>
+          </div>
+          <h2 className='mt-6 text-xl text-gray-600 dark:text-gray-400 border-b-2 border-gray-300 font-[600] text-[23px]'>
+            技術スタック
+          </h2>
+          <div className='text-md py-4'>
+            <p>このブログは以下の技術を使用しています。</p>
+            <ul className='list-disc list-inside'>
+              <li>Next.js</li>
+              <li>Tailwind CSS</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+            </ul>
           </div>
         </div>
-      </section>
-      <section className='bg-gray-100 py-20 dark:bg-gray-800'>
-        <div className='container mx-auto px-4 md:px-6'>
-          <div className='grid grid-cols-1 gap-8 lg:grid-cols-2 max-w-[700px] mx-auto'>
-            <div>
-              <h2 className='text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50'>
-                Our History
-              </h2>
-              <p className='mt-6 text-xl text-gray-600 dark:text-gray-400'>
-                Acme Software was founded in 2010 by a team of passionate
-                technologists who saw the need for innovative software solutions
-                that could help businesses thrive in the digital age. Since
-                then, we have grown to become a leading provider of cutting-edge
-                software products and services, serving clients across a wide
-                range of industries.
-              </p>
-            </div>
-            <div>
-              <Image
-                alt='Acme Software History'
-                className='mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full'
-                height={310}
-                src='/placeholder.svg'
-                width={550}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </>
   );
 }

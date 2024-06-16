@@ -10,22 +10,19 @@ export default async function CategoryPage({
 }) {
   const { datas, totalCount } = await getfilterCATblog(params.id, 1);
   const categoryname = await getCategoryname(params.id);
-
-  return (
-    <div>
-      {datas.length === 0 ? (
-        <Section title={`${categoryname} : No Result`} />
-      ) : (
-        <div>
-          <Section title={`カテゴリー：${categoryname}`} />
-          <BlogList props={datas} />
-          <Pagination
-            totalCount={totalCount}
-            currentPage={1}
-            paths={`/category/${params.id}/`}
-          />
-        </div>
-      )}
-    </div>
-  );
+  if (datas.length === 0) {
+    return <Section title={`カテゴリー：${categoryname}`} />;
+  } else {
+    return (
+      <div>
+        <Section title={`カテゴリー：${categoryname}`} />
+        <BlogList props={datas} />
+        <Pagination
+          totalCount={totalCount}
+          currentPage={1}
+          paths={`/category/${params.id}/`}
+        />
+      </div>
+    );
+  }
 }

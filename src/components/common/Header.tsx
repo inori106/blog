@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FiX } from 'react-icons/fi';
 const Paths = [
-  { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact' },
@@ -51,7 +50,7 @@ const Header: React.FC = () => {
                 <Link
                   key={path.name}
                   href={path.href}
-                  className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-[#0d1117]
+                  className='block py-2 px-4 text-lg hover:bg-gray-100 dark:hover:bg-[#0d1117]
                     text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'
                   onClick={handleMenuToggle}
                 >

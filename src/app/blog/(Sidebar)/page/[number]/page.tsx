@@ -9,22 +9,19 @@ export default async function BlogPageNation({
   params: { number: string };
 }) {
   const { datas, totalCount } = await getBlog(Number(params.number));
-
-  return (
-    <div>
-      {datas.length === 0 ? (
-        <Section title='No Result' />
-      ) : (
-        <div>
-          <Section title={`${params.number} ページ`} />
-          <BlogList props={datas} />
-          <Pagination
-            totalCount={totalCount}
-            currentPage={Number(params.number)}
-            paths='/'
-          />
-        </div>
-      )}
-    </div>
-  );
+  if (datas.length === 0) {
+    return <Section title={`記事一覧`} />;
+  } else {
+    return (
+      <div>
+        <Section title={'記事一覧'} />
+        <BlogList props={datas} />
+        <Pagination
+          totalCount={totalCount}
+          currentPage={Number(params.number)}
+          paths='/'
+        />
+      </div>
+    );
+  }
 }

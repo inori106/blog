@@ -12,22 +12,19 @@ export default async function SearchPage({
 }) {
   const query = decodeURI(params.query);
   const { datas, totalCount } = await getSearchblog(decodeURI(query), 1);
-
-  return (
-    <div>
-      {datas.length === 0 ? (
-        <Section title={`${query} : No Result`} />
-      ) : (
-        <div>
-          <Section title={`Search: ${query}`} />
-          <BlogList props={datas} />
-          <TestPagination
-            totalCount={totalCount}
-            currentPage={1}
-            paths={`/search/${query}/`}
-          />
-        </div>
-      )}
-    </div>
-  );
+  if (datas.length === 0) {
+    return <Section title={`${query}の検索結果`} />;
+  } else {
+    return (
+      <div>
+        <Section title={`${query}の検索結果`} />
+        <BlogList props={datas} />
+        <TestPagination
+          totalCount={totalCount}
+          currentPage={1}
+          paths={`/search/${query}/`}
+        />
+      </div>
+    );
+  }
 }

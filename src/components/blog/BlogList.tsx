@@ -8,16 +8,13 @@ type Props = {
 const BlogList: React.FC<Props> = async ({ props }) => {
   return (
     <div className='space-y-6'>
-      <p className='rounded-lg py-6 bg-white text-center font-bold text-3xl'>
-        記事一覧
-      </p>
       {props.map((data: Blog) => (
         <article
           className='rounded-lg bg-white dark:bg-gray-900 shadow-md dark:shadow-none mx-auto w-full h-max'
           key={data.id}
         >
           <div className='flex flex-col p-5 w-full'>
-            <div>
+            <div className='space-y-2'>
               <div className='flex items-center gap-2'>
                 {data.categories.map((category: Category) => (
                   <Link

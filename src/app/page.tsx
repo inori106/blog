@@ -13,20 +13,19 @@ export default async function Page() {
             TypeScript support, smart bundling, route pre-fetching, and more.
           </p>
         </div>
-        <div className='flex-none'>
-          <Link
-            href='/blog'
-            className='inline-flex h-10 rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300'
-            prefetch={false}
-          >
-            Read a blog
+        <div className='sm:flex justify-center sm:space-x-8'>
+          <Link href='/blog' prefetch={false}>
+            <div className='w-full py-3 bg-black rounded-md sm:w-40 text-center hover:bg-gray-800 dark:border-2 dark:border-gray-700 my-4'>
+              <button className='text-white font-bold'>Read blog</button>
+            </div>
           </Link>
-          <Link
-            href='/contact'
-            className='inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300 dark:text-white'
-            prefetch={false}
-          >
-            Contact us
+          <Link href='/contact' prefetch={false}>
+            <div
+              className='w-full py-3 bg-white rounded-md sm:w-40 text-center hover:bg-gray-200
+           border-2 my-4'
+            >
+              <button className='font-bold'>Contact us</button>
+            </div>
           </Link>
         </div>
       </section>
