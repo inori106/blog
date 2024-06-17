@@ -16,7 +16,7 @@ export async function formActions(
   if (!validateResult.success) {
     const errors = {
       errors: validateResult.error.flatten().fieldErrors,
-      message: 'Failed to validate',
+      message: 'フォームに正しく入力してください',
     };
     return errors;
   }
@@ -46,7 +46,7 @@ export async function formActions(
   } catch (error) {
     return {
       errors: {},
-      message: 'Failed to send email',
+      message: '送信に失敗しました。時間をおいて再度お試しください。',
     };
   }
   redirect('/success');

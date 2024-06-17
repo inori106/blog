@@ -21,7 +21,7 @@ export default async function Page() {
           </Link>
           <Link href='/contact' prefetch={false}>
             <div
-              className='w-full py-3 bg-white rounded-md sm:w-40 text-center hover:bg-gray-200
+              className='w-full py-3 bg-[#EDEDED] rounded-md sm:w-40 text-center hover:bg-gray-300
            border-2 my-4'
             >
               <button className='font-bold'>Contact us</button>

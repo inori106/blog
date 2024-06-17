@@ -76,7 +76,7 @@ const BlogDetail: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className='px-4 md:px-6 2xl:px-64 3xl:px-80 lg:flex gap-3 py-8 min-h-screen justify-between space-y-6 lg:space-y-0'>
+    <div className='px-4 md:px-6 2xl:px-64 3xl:px-80 lg:flex gap-3 py-8 min-h-screen justify-between space-y-6 lg:space-y-0 shadow-md'>
       <div className='lg:w-2/3 bg-white dark:bg-gray-900 sm:p-12 p-3 rounded-xl shadow-md'>
         <section>
           <div>
@@ -114,7 +114,7 @@ const BlogDetail: React.FC<Props> = ({
           <div className={styles.content}>{parse(content, options)}</div>
         </div>
       </div>
-      <div className='lg:w-96 bg-white p-6 rounded-lg h-min sticky top-24 hidden lg:block'>
+      <div className='lg:w-96 bg-white p-6 rounded-lg h-min sticky top-24 hidden lg:block dark:bg-gray-900 shadow-md'>
         <h2 className='text-2xl font-bold dark:text-gray-50 mb-2'>目次</h2>
         <nav className='toc'></nav>
       </div>

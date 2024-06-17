@@ -1,7 +1,6 @@
 import { getdetail } from '@/lib/client';
 import BlogDetail from '@/components/blog/BlogDetail';
 
-export const revalidate = 0;
 export default async function BlogDetailPage({
   params,
 }: {
