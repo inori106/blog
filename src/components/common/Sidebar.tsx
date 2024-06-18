@@ -7,7 +7,7 @@ type Props = {
 };
 export const Sidebar: React.FC<Props> = async ({ categories }) => {
   return (
-    <aside className=' bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-none p-6 sticky top-24'>
+    <aside className='bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-none p-6 sticky top-24 mt-6 lg:mt-0'>
       <h3 className='text-lg font-bold mb-2 dark:text-gray-50'>Search</h3>
       <SearchForm />
       <div>
