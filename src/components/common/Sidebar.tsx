@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { getCategories } from '@/lib/client';
 import { Category } from '@/types/blog';
 import SearchForm from '../blog/SearchForm';
 
-const Sidebar: React.FC = async () => {
-  const categories = await getCategories();
-
+type Props = {
+  categories: Category[];
+};
+export const Sidebar: React.FC<Props> = async ({ categories }) => {
   return (
     <aside className=' bg-white dark:bg-gray-900 rounded-lg shadow-md dark:shadow-none p-6 sticky top-24'>
       <h3 className='text-lg font-bold mb-2 dark:text-gray-50'>Search</h3>
