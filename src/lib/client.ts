@@ -22,7 +22,12 @@ export const client = createClient({
 });
 
 export const getBlog = async (page: number) => {
-  const res = (await client.get({
+  const res = (await client.getList({
+    customRequestInit: {
+      next: {
+        revalidate: 0,
+      },
+    },
     endpoint: process.env.MICROCMS_ENDPOINT as string,
     queries: {
       offset: (page - 1) * LIST_LIMIT,
@@ -34,7 +39,12 @@ export const getBlog = async (page: number) => {
 };
 
 export const getCategories = async () => {
-  const res = await client.get({
+  const res = await client.getList({
+    customRequestInit: {
+      next: {
+        revalidate: 0,
+      },
+    },
     endpoint: 'categories',
   });
   return res.contents as Category[];
@@ -42,6 +52,11 @@ export const getCategories = async () => {
 
 export const getCategoryname = async (id: string) => {
   const res = (await client.get({
+    customRequestInit: {
+      next: {
+        revalidate: 0,
+      },
+    },
     endpoint: 'categories',
     contentId: id,
   })) as Category;
@@ -49,6 +64,11 @@ export const getCategoryname = async (id: string) => {
 };
 export const getdetail = async (id: string) => {
   const res = await client.getListDetail<Blog>({
+    customRequestInit: {
+      next: {
+        revalidate: 0,
+      },
+    },
     endpoint: process.env.MICROCMS_ENDPOINT as string,
     contentId: id,
   });
@@ -68,6 +88,11 @@ export const getfilterCATblog = async (id: string, page: number) => {
 
 export const getSearchblog = async (query: string, page: number) => {
   const res = (await client.get({
+    customRequestInit: {
+      next: {
+        revalidate: 0,
+      },
+    },
     endpoint: process.env.MICROCMS_ENDPOINT as string,
     queries: {
       q: query,

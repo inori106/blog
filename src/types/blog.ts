@@ -20,4 +20,4 @@ export type Category = {
   publishedAt: string;
   revisedAt: string;
   name: string;
-};
+} & MicroCMSDate;
