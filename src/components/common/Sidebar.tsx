@@ -16,7 +16,7 @@ export const Sidebar: React.FC<Props> = async ({ categories }) => {
           {categories.map((category: Category) => (
             <li key={category.id}>
               <Link
-                className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50'
+                className='text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-gray-50'
                 href={`/blog/category/${category.id}`}
               >
                 {category.name}

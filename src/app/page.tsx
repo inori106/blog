@@ -1,34 +1,47 @@
-import Link from 'next/link';
-export default async function Page() {
-  return (
-    <div className='md:px-64 px-4 justify-center'>
-      <section className='mx-auto py-12 md:py-24 lg:py-32'>
-        <div className='px-4 md:px-6 text-center'>
-          <h1 className='text-3xl md:text-5xl font-bold mb-4 dark:text-white'>
-            The React Framework
-          </h1>
-          <p className='text-gray-400 mb-8'>
-            Next.js gives you the best developer experience with all the
-            features you need for production: hybrid static & server rendering,
-            TypeScript support, smart bundling, route pre-fetching, and more.
-          </p>
+import BlogList from '@/components/blog/BlogList';
+import Section from '@/components/blog/Section';
+import { getBlog, getCategories } from '@/lib/client';
+import Pagination from '@/components/blog/Pagination';
+import { LIST_LIMIT } from '@/lib/client';
+import Sidebar from '@/components/common/Sidebar';
+export default async function BlogPage() {
+  const { datas, totalCount } = await getBlog(1);
+  const categories = await getCategories();
+  if (datas.length === 0) {
+    return (
+      <div className='px-4 md:px-6 2xl:px-80 lg:flex gap-6 py-8 justify-between min-h-screen'>
+        <div className='lg:w-10/12'>
+          <Section title={'記事一覧'} />
         </div>
-        <div className='sm:flex justify-center sm:space-x-8'>
-          <Link href='/blog' prefetch={false}>
-            <div className='w-full py-3 bg-black rounded-md sm:w-40 text-center hover:bg-gray-800 dark:border-2 dark:border-gray-700 my-4'>
-              <button className='text-white font-bold'>Read blog</button>
-            </div>
-          </Link>
-          <Link href='/contact' prefetch={false}>
-            <div
-              className='w-full py-3 bg-[#EDEDED] rounded-md sm:w-40 text-center hover:bg-gray-300
-           border-2 my-4'
-            >
-              <button className='font-bold'>Contact us</button>
-            </div>
-          </Link>
+        <div className='lg:w-4/12'>
+          <Sidebar categories={categories} />
         </div>
-      </section>
-    </div>
-  );
+      </div>
+    );
+  } else if (datas.length <= LIST_LIMIT) {
+    return (
+      <div className='px-4 md:px-6 2xl:px-80 lg:flex gap-6 py-8 justify-between min-h-screen'>
+        <div className='lg:w-10/12'>
+          <Section title={'記事一覧'} />
+          <BlogList props={datas} />
+        </div>
+        <div className='lg:w-4/12'>
+          <Sidebar categories={categories} />
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className='px-4 md:px-6 2xl:px-80 lg:flex gap-6 py-8 justify-between min-h-screen'>
+        <div className='lg:w-10/12'>
+          <Section title={'記事一覧'} />
+          <BlogList props={datas} />
+          <Pagination totalCount={totalCount} currentPage={1} paths='/' />
+        </div>
+        <div className='lg:w-4/12'>
+          <Sidebar categories={categories} />
+        </div>
+      </div>
+    );
+  }
 }
