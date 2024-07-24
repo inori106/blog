@@ -1,5 +1,6 @@
 import { getdetail } from '@/lib/client';
 import BlogDetail from '@/components/blog/BlogDetail';
+import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = await getdetail(params.id);
@@ -15,6 +16,7 @@ export default async function BlogDetailPage({
   params: { id: string };
 }) {
   const data = await getdetail(params.id);
+
   return (
     <>
       <BlogDetail

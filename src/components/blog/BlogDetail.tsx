@@ -38,7 +38,7 @@ const BlogDetail: React.FC<Props> = ({
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (domNode instanceof Element && domNode.type === 'tag' && domNode) {
-        if (domNode.name === 'div' && 'pre' && 'code') {
+        if (domNode.name === 'div') {
           const data_filename = domNode.attribs['data-filename'];
           const div = domNode.children[0] as Element;
           const pre = div.children[0] as Element;
@@ -76,8 +76,8 @@ const BlogDetail: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className='px-4 md:px-6 2xl:px-80 3xl:px-80 lg:flex gap-6 py-8 min-h-screen justify-between shadow-md'>
-      <div className='lg:w-10/12 bg-white dark:bg-gray-900 sm:p-12 p-3 rounded-xl shadow-md'>
+    <div className='px-4 md:px-6 2xl:px-80 3xl:px-80 lg:flex gap-5 py-8 min-h-screen justify-between'>
+      <div className='lg:w-8/12 bg-white dark:bg-gray-900 sm:p-12 p-3 rounded-xl shadow-md'>
         <section>
           <div>
             <div className='max-w-3xl'>

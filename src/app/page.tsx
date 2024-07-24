@@ -10,10 +10,10 @@ export default async function BlogPage() {
   if (datas.length === 0) {
     return (
       <div className='px-4 md:px-6 2xl:px-80 lg:flex gap-6 py-8 justify-between min-h-screen'>
-        <div className='lg:w-10/12'>
+        <div className='lg:w-8/12'>
           <Section title={'記事一覧'} />
         </div>
-        <div className='lg:w-3/12'>
+        <div className='lg:w-4/12'>
           <Sidebar categories={categories} />
         </div>
       </div>
@@ -21,11 +21,11 @@ export default async function BlogPage() {
   } else if (datas.length <= LIST_LIMIT) {
     return (
       <div className='px-4 md:px-6 2xl:px-80 lg:flex gap-6 py-8 justify-between min-h-screen'>
-        <div className='lg:w-10/12'>
+        <div className='lg:w-8/12'>
           <Section title={'記事一覧'} />
           <BlogList props={datas} />
         </div>
-        <div className='lg:w-3/12'>
+        <div className='lg:w-4/12'>
           <Sidebar categories={categories} />
         </div>
       </div>

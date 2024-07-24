@@ -22,7 +22,7 @@ const Parse: React.FC<{ content: string }> = ({ content }) => {
   const options: HTMLReactParserOptions = {
     replace: (domNode) => {
       if (domNode instanceof Element && domNode.type === 'tag' && domNode) {
-        if (domNode.name === 'div' && 'pre' && 'code') {
+        if (domNode.name === 'div') {
           const data_filename = domNode.attribs['data-filename'];
           const div = domNode.children[0] as Element;
           const pre = div.children[0] as Element;

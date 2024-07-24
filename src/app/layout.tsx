@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'SciServ',
-  description: 'SciServ Project',
+  description: 'SciServのブログサイト',
 };
 
 export default function RootLayout({
