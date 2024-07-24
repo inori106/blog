@@ -5,6 +5,7 @@ import Header from '@/components/common/Header';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import Head from 'next/head';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           <Header />
           <main className='my-auto'>{children}</main>
           <SpeedInsights />
+          <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
           <Fotter />
         </div>
       </body>
