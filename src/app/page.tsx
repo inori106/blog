@@ -13,7 +13,7 @@ export default async function BlogPage() {
         <div className='lg:w-10/12'>
           <Section title={'記事一覧'} />
         </div>
-        <div className='lg:w-4/12'>
+        <div className='lg:w-3/12'>
           <Sidebar categories={categories} />
         </div>
       </div>
@@ -25,7 +25,7 @@ export default async function BlogPage() {
           <Section title={'記事一覧'} />
           <BlogList props={datas} />
         </div>
-        <div className='lg:w-4/12'>
+        <div className='lg:w-3/12'>
           <Sidebar categories={categories} />
         </div>
       </div>
@@ -38,7 +38,7 @@ export default async function BlogPage() {
           <BlogList props={datas} />
           <Pagination totalCount={totalCount} currentPage={1} paths='/' />
         </div>
-        <div className='lg:w-4/12'>
+        <div className='lg:w-2/12'>
           <Sidebar categories={categories} />
         </div>
       </div>

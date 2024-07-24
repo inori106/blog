@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   return (
     <header className='dark:bg-gray-950 dark:text-gray-50 pb-16'>
       <div
-        className='flex items-center justify-between bg-white dark:bg-gray-900 shadow-sm py-4 px-4 md:px-6 2xl:px-64 mx-auto border-b dark:border-none
+        className='flex items-center justify-between bg-white dark:bg-gray-900 shadow-sm py-4 px-4 md:px-6 2xl:px-80 mx-auto border-b dark:border-none
       fixed top-0 left-0 right-0 z-50 opacity-95 dark:opacity-100 transition-all duration-300 ease-in-out'
       >
         <h1 className='text-2xl font-bold hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-50'>
