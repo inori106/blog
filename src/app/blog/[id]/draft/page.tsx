@@ -1,10 +1,11 @@
 import BlogDetail from '@/components/blog/BlogDetail';
 import { client } from '@/lib/client';
 
-export const dynamic = 'force-dynamic';
 export const metadata = {
   robots: 'noindex',
 };
+
+export const revalidate = 0;
 
 type Props = {
   params: { id: string };
