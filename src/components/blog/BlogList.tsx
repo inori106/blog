@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { Blog, Category } from '@/types/blog';
+import { Article, Category } from '@/types/blog';
 import dayjs from 'dayjs';
 
 type Props = {
-  props: Blog[];
+  props: Article[];
 };
 const BlogList: React.FC<Props> = async ({ props }) => {
   return (
     <div className='space-y-6'>
-      {props.map((data: Blog) => (
+      {props.map((data: Article) => (
         <article
           className='rounded-lg bg-white dark:bg-gray-900 shadow-md dark:shadow-none mx-auto w-full h-max'
           key={data.id}
@@ -36,12 +36,12 @@ const BlogList: React.FC<Props> = async ({ props }) => {
               </h2>
 
               <div className='xl:flex items-center text-gray-500 dark:text-gray-400 xl:space-x-2'>
-                <p>投稿日：{dayjs(data.createdAt).format('YYYY-MM-DD')}</p>
-                {data.createdAt !== data.updatedAt && (
+                <p>投稿日：{dayjs(data.publishedAt).format('YYYY-MM-DD')}</p>
+                {data.publishedAt !== data.updatedAt && (
                   <p>更新日：{dayjs(data.updatedAt).format('YYYY-MM-DD')}</p>
                 )}
               </div>
-              <p className='text-gray-600 dark:text-gray-400'>
+              <p className='text-gray-600 dark:text-gray-400 text-clip'>
                 {data.description}
               </p>
             </div>

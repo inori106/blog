@@ -1,9 +1,4 @@
 import { createClient } from 'microcms-js-sdk';
-import type {
-  MicroCMSQueries,
-  MicroCMSImage,
-  MicroCMSDate,
-} from 'microcms-js-sdk';
 import { Blog, Category } from '@/types/blog';
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -74,9 +69,7 @@ export const getfilterCATblog = async (id: string, page: number) => {
 export const getSearchblog = async (query: string, page: number) => {
   const res = (await client.get({
     customRequestInit: {
-      next: {
-        revalidate: 0,
-      },
+      cache: 'no-cache',
     },
     endpoint: process.env.MICROCMS_ENDPOINT as string,
     queries: {

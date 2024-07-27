@@ -1,3 +1,4 @@
+import { Blog } from '@/types/blog';
 import BlogDetail from '@/components/blog/BlogDetail';
 import { client } from '@/lib/client';
 
@@ -16,30 +17,25 @@ export default async function PreviewPage({ params, searchParams }: Props) {
   const { id } = params;
   const { draftKey } = searchParams;
 
-  console.log('id', id);
-
-  const article = await client.getListDetail({
+  const article = (await client.getListDetail({
     endpoint: 'blog',
     contentId: id,
     queries: { draftKey },
-  });
+  })) as Blog;
 
   return (
     <div>
       <div className='bg-destructive/10 text-center mt-8 font-bold text-green-400'>
-        プレビュー中です画面
+        プレビュー画面です
       </div>
       <BlogDetail
-        title={article.title}
-        content={article.content}
-        createdAt={article.createdAt}
-        updatedAt={article.updatedAt}
-        description={article.description}
-        categories={article.categories}
-        eyecatch={article.eyecatch}
         id={article.id}
+        title={article.title}
+        description={article.description}
+        content={article.content}
+        categories={article.categories}
         publishedAt={article.publishedAt}
-        revisedAt={article.revisedAt}
+        updatedAt={article.updatedAt}
       />
     </div>
   );

@@ -5,12 +5,10 @@ export type Blog = {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  revisedAt: string;
   title: string;
   description: string;
   content: string;
   categories: Category[];
-  eyecatch?: MicroCMSImage;
 } & MicroCMSDate;
 
 export type Category = {
@@ -21,3 +19,13 @@ export type Category = {
   revisedAt: string;
   name: string;
 } & MicroCMSDate;
+
+export type Article = {
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+  categories: Category[];
+  publishedAt: string;
+  updatedAt: string;
+};

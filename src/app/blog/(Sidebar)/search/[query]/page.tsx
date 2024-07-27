@@ -3,7 +3,6 @@ import BlogList from '@/components/blog/BlogList';
 import Section from '@/components/blog/Section';
 import TestPagination from '@/components/blog/Pagination';
 import { LIST_LIMIT } from '@/lib/client';
-export const revalidate = 0;
 
 export default async function SearchPage({
   params,

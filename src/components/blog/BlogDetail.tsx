@@ -1,5 +1,5 @@
 'use client';
-import { Blog } from '@/types/blog';
+import { Article } from '@/types/blog';
 import dayjs from 'dayjs';
 import parse, {
   Element,
@@ -23,20 +23,21 @@ import EditCode from './editcode';
 import * as tocbot from 'tocbot';
 import '../../styles/TableofContents.css';
 
-type Props = Blog;
+type Props = Article;
 const BlogDetail: React.FC<Props> = ({
+  id,
   title,
-  content,
-  createdAt,
-  updatedAt,
   description,
+  content,
   categories,
+  publishedAt,
+  updatedAt,
 }) => {
-  const create = dayjs(createdAt).format('YYYY-MM-DD');
+  const create = dayjs(publishedAt).format('YYYY-MM-DD');
   const update = dayjs(updatedAt).format('YYYY-MM-DD');
 
   const options: HTMLReactParserOptions = {
-    replace: (domNode) => {
+    replace: (domNode, { attribs, name }: any) => {
       if (domNode instanceof Element && domNode.type === 'tag' && domNode) {
         if (domNode.name === 'div') {
           const data_filename = domNode.attribs['data-filename'];
@@ -58,6 +59,10 @@ const BlogDetail: React.FC<Props> = ({
             </pre>
           );
         }
+      }
+      if (!attribs || Object.keys(attribs).length === 0) return;
+      if (name === 'script' && attribs.src === '//cdn.iframe.ly/embed.js') {
+        return <></>;
       }
     },
   };
