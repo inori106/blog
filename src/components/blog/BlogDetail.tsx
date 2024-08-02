@@ -19,7 +19,7 @@ import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-powershell';
-import EditCode from './EditCode';
+import EditCode from './addCodeCopy';
 import * as tocbot from 'tocbot';
 import '../../styles/TableofContents.css';
 
