@@ -1,7 +1,6 @@
 import { Blog } from '@/types/blog';
 import BlogDetail from '@/components/blog/BlogDetail';
 import { client } from '@/lib/client';
-
 export const metadata = {
   robots: 'noindex',
 };

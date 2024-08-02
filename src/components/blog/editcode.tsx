@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import { IoCheckmark } from 'react-icons/io5';
 import { IoIosCopy } from 'react-icons/io';

@@ -19,7 +19,7 @@ import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-powershell';
-import EditCode from './editcode';
+import EditCode from './EditCode';
 import * as tocbot from 'tocbot';
 import '../../styles/TableofContents.css';
 
@@ -37,7 +37,7 @@ const BlogDetail: React.FC<Props> = ({
   const update = dayjs(updatedAt).format('YYYY-MM-DD');
 
   const options: HTMLReactParserOptions = {
-    replace: (domNode, { attribs, name }: any) => {
+    replace: (domNode) => {
       if (domNode instanceof Element && domNode.type === 'tag' && domNode) {
         if (domNode.name === 'div') {
           const data_filename = domNode.attribs['data-filename'];
@@ -59,10 +59,6 @@ const BlogDetail: React.FC<Props> = ({
             </pre>
           );
         }
-      }
-      if (!attribs || Object.keys(attribs).length === 0) return;
-      if (name === 'script' && attribs.src === '//cdn.iframe.ly/embed.js') {
-        return <></>;
       }
     },
   };

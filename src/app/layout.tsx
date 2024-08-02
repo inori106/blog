@@ -4,7 +4,6 @@ import Fotter from '@/components/common/Fotter';
 import Header from '@/components/common/Header';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
-import Head from 'next/head';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 
@@ -22,13 +21,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ja'>
-      <Head>
-        <meta
-          name='viewport'
-          content='width=device-width, initial-scale=1.0'
-        ></meta>
-      </Head>
-      <Script src='//cdn.iframe.ly/embed.js' />
       <body className={inter.className}>
         <div data-overlay-container className='flex flex-col min-h-screen'>
           <Header />
