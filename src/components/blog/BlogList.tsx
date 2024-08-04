@@ -21,6 +21,7 @@ const BlogList: React.FC<Props> = async ({ props }) => {
                     className='inline-flex items-center rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50 px-2 py-1 text-xs font-medium text-gray-900 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 dark:focus-visible:ring-gray-300'
                     href={`blog/category/${category.id}`}
                     key={category.id}
+                    prefetch={true}
                   >
                     {category.name}
                   </Link>
@@ -30,6 +31,7 @@ const BlogList: React.FC<Props> = async ({ props }) => {
                 <Link
                   className='text-gray-900 dark:text-gray-50 hover:underline underline-offset-8 ...'
                   href={`/blog/${data.id}`}
+                  prefetch={true}
                 >
                   {data.title}
                 </Link>
@@ -48,6 +50,7 @@ const BlogList: React.FC<Props> = async ({ props }) => {
             <Link
               className='mt-4 rounded-md bg-neutral-100 dark:bg-[#1A1A1A] dark:text-gray-400 px-4 py-2 text-sm font-medium text-black dark:hover:bg-zinc-800 shadow transition-colors hover:bg-zinc-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 dark:focus-visible:ring-gray-300 disabled:pointer-events-none disabled:opacity-50'
               href={`/blog/${data.id}`}
+              prefetch={true}
             >
               Read More
             </Link>
