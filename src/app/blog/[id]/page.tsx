@@ -17,6 +17,7 @@ import CopyButton from '@/components/blog/CopyButton';
 import dayjs from 'dayjs';
 import ToC from '@/components/blog/ToC';
 
+export const revalidate = 0;
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = await getdetail(params.id);
   return {
