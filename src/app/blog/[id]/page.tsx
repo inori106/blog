@@ -74,7 +74,7 @@ export default async function BlogDetailPage({
       $(el).prepend(
         `<div className='flex items-center justify-between bg-gray-200 p-2 dark:bg-[#000000]'><div className='flex items-center space-x-2 boreder border-gray-200'><span class='icon'>アイコン</span><p className='dark:text-gray-200 font-semibold'>${filename}</p></div><button className='text-sm bg-gray-600 rounded-md p-2'>Copy</button></div>`
       );
-      $('pre').addClass(`p-2 dark:bg-[#111111]`);
+      $('pre').addClass(`p-3 dark:bg-[#111111] text-ms overflow-x-auto`);
     }
   });
   const divcode = $('pre').parent().parent();
