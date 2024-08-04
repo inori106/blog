@@ -2,7 +2,7 @@ import { Blog } from '@/types/blog';
 import { client } from '@/lib/client';
 import parse, { HTMLReactParserOptions, Element } from 'html-react-parser';
 import Prism from 'prismjs';
-import '@/styles/prism.css';
+import '@/styles/code.css';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-ruby';
