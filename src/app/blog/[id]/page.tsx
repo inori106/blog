@@ -16,7 +16,7 @@ import ExtensionIcon from '@/components/blog/ExtensionIcon';
 import CopyButton from '@/components/blog/CopyButton';
 import dayjs from 'dayjs';
 import ToC from '@/components/blog/ToC';
-
+import { Suspense } from 'react';
 export const revalidate = 0;
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = await getdetail(params.id);
@@ -125,7 +125,7 @@ export default async function BlogDetailPage({
   };
 
   const HTML = $.html();
-
+  const Content = parse(HTML, options);
   return (
     <>
       <div className='px-4 md:px-6 2xl:px-80 3xl:px-80 lg:flex gap-5 py-8 min-h-screen justify-between'>
@@ -165,7 +165,7 @@ export default async function BlogDetailPage({
                 </div>
               </div>
             </section>
-            <div className={styles.content}>{parse(HTML, options)}</div>
+            <div className={styles.content}>{Content}</div>
           </div>
         </div>
         <div className='lg:w-3/12 bg-white p-6 rounded-lg h-min sticky top-24 hidden lg:block dark:bg-gray-900 shadow-md'>
