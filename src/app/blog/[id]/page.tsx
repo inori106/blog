@@ -17,6 +17,7 @@ import CopyButton from '@/components/blog/CopyButton';
 import dayjs from 'dayjs';
 import ToC from '@/components/blog/ToC';
 import { Suspense } from 'react';
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = await getdetail(params.id);
@@ -170,7 +171,9 @@ export default async function BlogDetailPage({
         </div>
         <div className='lg:w-3/12 bg-white p-6 rounded-lg h-min sticky top-24 hidden lg:block dark:bg-gray-900 shadow-md'>
           <h2 className='text-2xl font-bold dark:text-gray-50 mb-2'>目次</h2>
-          <ToC code={article.content} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <ToC code={article.content} />
+          </Suspense>
         </div>
       </div>
     </>
