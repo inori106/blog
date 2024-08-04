@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  // output: 'export',
   images: {
     remotePatterns: [
       {
@@ -12,5 +13,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-// domains: ['images.microcms-assets.io'],

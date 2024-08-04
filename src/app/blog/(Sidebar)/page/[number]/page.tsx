@@ -3,6 +3,7 @@ import Section from '@/components/blog/Section';
 import { getBlog } from '@/lib/client';
 import Pagination from '@/components/blog/Pagination';
 import { LIST_LIMIT } from '@/lib/client';
+
 export default async function BlogPageNation({
   params,
 }: {
