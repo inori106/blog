@@ -3,6 +3,17 @@ import Section from '@/components/blog/Section';
 import BlogList from '@/components/blog/BlogList';
 import Pagination from '@/components/blog/Pagination';
 import { LIST_LIMIT } from '@/lib/client';
+
+export const revalidate = 0;
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const categoryname = await getCategoryname(params.id);
+  return {
+    title: `${categoryname}の記事一覧`,
+    description: `${categoryname}の記事一覧`,
+  };
+}
+
 export default async function CategoryPage({
   params,
 }: {

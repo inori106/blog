@@ -1,4 +1,4 @@
-import { getdetail } from '@/lib/client';
+import { getdetail, StaticDetail } from '@/lib/client';
 import parse, { HTMLReactParserOptions, Element } from 'html-react-parser';
 import Prism from 'prismjs';
 import '@/styles/code.css';
@@ -17,8 +17,11 @@ import CopyButton from '@/components/blog/CopyButton';
 import dayjs from 'dayjs';
 import ToC from '@/components/blog/ToC';
 import { Suspense } from 'react';
-export const revalidate = 0;
 
+export async function generateStaticParams() {
+  const Ids = await StaticDetail();
+  return Ids;
+}
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = await getdetail(params.id);
   return {

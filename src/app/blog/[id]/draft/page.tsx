@@ -49,6 +49,7 @@ export default async function PreviewPage({ params, searchParams }: Props) {
   if (!article) {
     return <div>no article</div>;
   }
+
   const create = dayjs(article.publishedAt).format('YYYY-MM-DD');
   const update = dayjs(article.updatedAt).format('YYYY-MM-DD');
 
@@ -77,7 +78,7 @@ export default async function PreviewPage({ params, searchParams }: Props) {
         'border-2 border-gray-200 rounded-md dark:border-[#111111]'
       );
       $(el).prepend(
-        `<div className='flex items-center justify-between bg-gray-200 p-2 dark:bg-[#000000]'><div className='flex items-center space-x-2 boreder border-gray-200'><span class='icon'>アイコン</span><p className='dark:text-gray-200 font-semibold'>${filename}</p></div><button className='text-sm bg-gray-600 rounded-md p-2'>Copy</button></div>`
+        `<div className='flex items-center justify-between bg-gray-200 p-2 dark:bg-[#000000]'><div className='flex items-center space-x-2 boreder border-gray-200'><span class='icon'>アイコン</span><p className='dark:text-gray-200 font-semibold'>${filename}</p></div><button>Copy</button></div>`
       );
       $('pre').addClass(`p-3 dark:bg-[#111111] text-ms overflow-x-auto`);
     }
@@ -111,6 +112,16 @@ export default async function PreviewPage({ params, searchParams }: Props) {
       }</p></a></div>`
     );
   });
+
+  // $('p').each((i, el) => {
+  //   // 親要素がpタグが検索する
+  //   if ($(el).children().get(0)?.tagName === 'code') {
+  //     $(el).addClass('border-2 border-gray-200 dark:border-[#111111]');
+  //     $(el).prepend(
+  //       `<div className='flex items-center justify-between bg-gray-200 p-2 dark:bg-[#000000]'><div className='flex items-center space-x-2 boreder border-gray-200'><span class='Terminal'>アイコン</span><p className='dark:text-gray-200 font-semibold'>Command</p></p></div><button className='text-sm bg-gray-600 rounded-md p-2'>Copy</button></div>`
+  //     );
+  //   }
+  // });
 
   let i: number = -1;
   let j: number = -1;

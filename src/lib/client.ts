@@ -80,3 +80,14 @@ export const getSearchblog = async (query: string, page: number) => {
   })) as { contents: Blog[]; totalCount: number };
   return { datas: res.contents, totalCount: res.totalCount };
 };
+
+export const StaticDetail = async () => {
+  const res = await client.getList({
+    endpoint: process.env.MICROCMS_ENDPOINT as string,
+  });
+  // Idsを[{ id: '1' }, { id: '2' }, { id: '3' }]の形に変換
+  const Ids = res.contents.map((content) => {
+    return { id: content.id };
+  });
+  return Ids;
+};

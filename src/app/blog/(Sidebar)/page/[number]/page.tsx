@@ -4,6 +4,15 @@ import { getBlog } from '@/lib/client';
 import Pagination from '@/components/blog/Pagination';
 import { LIST_LIMIT } from '@/lib/client';
 
+export const revalidate = 0;
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  return {
+    title: `記事一覧 - ${params.id}ページ`,
+    description: `記事一覧 - ${params.id}ページ`,
+  };
+}
+
 export default async function BlogPageNation({
   params,
 }: {
