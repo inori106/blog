@@ -6,11 +6,11 @@
 .toc a.toc-link.node-name--H2.is-active-link {
   color: #0072f5;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .toc a.toc-link.node-name--H2 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #666;
 }
@@ -18,11 +18,11 @@
 .toc a.toc-link.node-name--H3.is-active-link {
   color: #0072f5;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .toc a.toc-link.node-name--H3 {
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
   padding-left: 10px;
 }

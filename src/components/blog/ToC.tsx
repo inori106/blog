@@ -2,10 +2,8 @@
 import { useEffect } from 'react';
 import * as tocbot from 'tocbot';
 import '../../styles/TableofContents.css';
-type Props = {
-  code: string;
-};
-const ToC: React.FC<Props> = ({ code }) => {
+
+const ToC: React.FC = () => {
   useEffect(() => {
     tocbot.init({
       tocSelector: '.toc',

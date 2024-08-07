@@ -1,7 +1,7 @@
 import { getdetail, StaticDetail } from '@/lib/client';
 import parse, { HTMLReactParserOptions, Element } from 'html-react-parser';
 import Prism from 'prismjs';
-import '@/styles/code.css';
+import '@/styles/prism.css';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-ruby';
@@ -9,6 +9,9 @@ import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-powershell';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-docker';
+import 'prismjs/components/prism-bash';
 import * as cheerio from 'cheerio';
 import fetcher from 'meta-fetcher';
 import styles from '@/styles/parse.module.css';
@@ -16,7 +19,6 @@ import ExtensionIcon from '@/components/blog/ExtensionIcon';
 import CopyButton from '@/components/blog/CopyButton';
 import dayjs from 'dayjs';
 import ToC from '@/components/blog/ToC';
-import { Suspense } from 'react';
 
 export async function generateStaticParams() {
   const Ids = await StaticDetail();
@@ -44,17 +46,14 @@ export default async function BlogDetailPage({
   params: { id: string };
 }) {
   const article = await getdetail(params.id);
-
+  const prism = Prism;
   if (!article) {
     return <div>no article</div>;
   }
   const create = dayjs(article.publishedAt).format('YYYY-MM-DD');
   const update = dayjs(article.updatedAt).format('YYYY-MM-DD');
 
-  const prism = Prism;
-  const Article = article.content;
-
-  const $ = cheerio.load(Article, { xmlMode: true });
+  const $ = cheerio.load(article.content, { xmlMode: true });
   const codes: string[] = [];
   const datafiles: string[] = [];
   const $codes = $('code[class^="language-"]');
@@ -64,7 +63,7 @@ export default async function BlogDetailPage({
       const lang = $code.attr('class')?.replace('language-', '') ?? '';
       const code = $code.text();
       codes.push(code);
-      $code.html(prism.highlight(code, prism.languages[lang], code));
+      $code.html(prism.highlight(code, prism.languages[lang], lang));
     });
   }
   $('div').each((i, el) => {
@@ -76,7 +75,7 @@ export default async function BlogDetailPage({
         'border-2 border-gray-200 rounded-md dark:border-[#111111]'
       );
       $(el).prepend(
-        `<div className='flex items-center justify-between bg-gray-200 p-2 dark:bg-[#000000]'><div className='flex items-center space-x-2 boreder border-gray-200'><span class='icon'>アイコン</span><p className='dark:text-gray-200 font-semibold'>${filename}</p></div><button className='text-sm bg-gray-600 rounded-md p-2'>Copy</button></div>`
+        `<div className='flex items-center justify-between bg-gray-200 p-2 dark:bg-[#000000]'><div className='flex items-center space-x-2 boreder border-gray-200'><span class='icon'>アイコン</span><p className='dark:text-gray-200 font-semibold'>${filename}</p></div><button>Copy</button></div>`
       );
       $('pre').addClass(`p-3 dark:bg-[#111111] text-ms overflow-x-auto`);
     }
@@ -103,9 +102,9 @@ export default async function BlogDetailPage({
         MetaDatas[i].metadata.website ?? ''
       } target=_blank><div className='flex items-center space-x-2'><img src=${
         MetaDatas[i].favicons[0]
-      } alt='' className='w-10 h-10'/><p className='text-xl font-bold'>${
+      } alt='' className='w-5 h-5 lg:w-10 lg:h-10'/><p className='text-xs lg:text-xl font-bold truncate'>${
         MetaDatas[i].metadata.title ?? ''
-      }</p></div><p className='pl-12 text-lg font-semibold'>${
+      }</p></div><p className='pl-7 lg:pl-12 text-xs lg:text-lg font-semibold truncate'>${
         href ?? ''
       }</p></a></div>`
     );
@@ -129,54 +128,43 @@ export default async function BlogDetailPage({
   };
 
   const HTML = $.html();
-  const Content = parse(HTML, options);
   return (
     <>
-      <div className='px-4 md:px-6 2xl:px-80 3xl:px-80 lg:flex gap-5 py-8 min-h-screen justify-between'>
+      <div className='px-4 md:px-6 2xl:px-80 lg:flex py-8 min-h-screen gap-14 justify-between'>
         <div className='lg:w-8/12 bg-white dark:bg-gray-900 sm:p-12 p-3 rounded-xl shadow-md'>
-          <div>
-            <section>
-              <div>
-                <div className='max-w-3xl'>
-                  <div className='space-y-5 pb-8'>
-                    <h1 className='text-[30px] font-bold tracking-tight dark:text-gray-50'>
-                      {article.title}
-                    </h1>
-                    <div className='md:flex  items-center text-gray-500 dark:text-gray-400 md:space-x-4'>
-                      <div className=''>投稿日 {create}</div>
-                      {update && (
-                        <div>
-                          <p className=''>更新日 {update}</p>
-                        </div>
-                      )}
-                    </div>
-                    {article.categories && (
-                      <div className='space-x-2'>
-                        {article.categories.map((category) => (
-                          <span
-                            className='px-2 py-2 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-sm rounded-md'
-                            key={category.id}
-                          >
-                            {category.name}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  <p className='text-[20px]  dark:text-[#ededed]'>
-                    {article.description}
-                  </p>
+          <div className='space-y-5 pb-8'>
+            <h1 className='text-[30px] font-bold tracking-tight dark:text-gray-50'>
+              {article.title}
+            </h1>
+            <div className='md:flex  items-center text-gray-500 dark:text-gray-400 md:space-x-4'>
+              <div className=''>投稿日 {create}</div>
+              {update && (
+                <div>
+                  <p className=''>更新日 {update}</p>
                 </div>
+              )}
+            </div>
+            {article.categories && (
+              <div className='space-x-2'>
+                {article.categories.map((category) => (
+                  <span
+                    className='px-2 py-2 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-sm rounded-md'
+                    key={category.id}
+                  >
+                    {category.name}
+                  </span>
+                ))}
               </div>
-            </section>
-            <div className={styles.content}>{Content}</div>
+            )}
           </div>
+          <p className='text-[20px]  dark:text-[#ededed]'>
+            {article.description}
+          </p>
+          <div className={styles.content}>{parse(HTML, options)}</div>
         </div>
-        <div className='lg:w-3/12 bg-white p-6 rounded-lg h-min sticky top-24 hidden lg:block dark:bg-gray-900 shadow-md'>
+        <div className='lg:w-4/12 bg-white p-6 rounded-lg h-min sticky top-24 hidden lg:block dark:bg-gray-900 shadow-md'>
           <h2 className='text-2xl font-bold dark:text-gray-50 mb-2'>目次</h2>
-          <Suspense fallback={<div>Loading...</div>}>
-            <ToC code={article.content} />
-          </Suspense>
+          <ToC />
         </div>
       </div>
     </>

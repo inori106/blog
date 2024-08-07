@@ -1,9 +1,9 @@
 /* PrismJS 1.29.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+git+go+markup-templating+php+plsql+python+jsx+tsx+ruby+rust+sql+typescript */
-code[class*='language-'] pre[class*='language-'] {
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+apacheconf+applescript+arduino+bash+batch+bicep+c+csharp+cpp+csv+d+dart+diff+docker+fortran+git+go+go-module+graphql+haml+haskell+hoon+java+json+js-templates+kotlin+lisp+makefile+markdown+markup-templating+nginx+opencl+perl+powershell+pure+python+r+jsx+tsx+ruby+rust+sass+scss+scala+sql+stan+swift+toml+typescript+typoscript+vim+visual-basic+warpscript+wasm+zig */
+code[class*='language-'],
+pre[class*='language-'] {
   color: #000;
   background: 0 0;
-  /* box-shadow: 0 1px #fff; */
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
@@ -42,16 +42,15 @@ pre[class*='language-']::selection {
 }
 pre[class*='language-'] {
   padding: 1em;
-  /* margin: 0.5em 0; */
+  margin: 0.5em 0;
   overflow: auto;
 }
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background: #ffffff;
+  background: #f5f2f0;
 }
-
 :not(pre) > code[class*='language-'] {
-  /* padding: 0.1em; */
+  padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
 }
@@ -89,17 +88,17 @@ pre[class*='language-'] {
 .token.entity,
 .token.operator,
 .token.url {
-  color: #bd2864;
+  color: #9a6e3a;
   background: hsla(0, 0%, 100%, 0.5);
 }
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #bd2864;
+  color: #07a;
 }
 .token.class-name,
 .token.function {
-  color: #7820bc;
+  color: #dd4a68;
 }
 .token.important,
 .token.regex,
